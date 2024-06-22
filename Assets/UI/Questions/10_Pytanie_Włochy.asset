@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89a02b5875e96164ba6603ade3c2a198, type: 3}
-  m_Name: 02_Pytanie_Francja
+  m_Name: "10_Pytanie_W\u0142ochy"
   m_EditorClassIdentifier: 
-  answer: Francja
-  display_name: Francja
+  answer: "W\u0142ochy"
+  display_name: "W\u0142ochy"
   hints:
-  - Kraj znany z bagietek
-  - Ojczyzna Napoleona
-  - "Stolica to Pary\u017C"
+  - Koloseum
+  - Pizza
+  - Rzym

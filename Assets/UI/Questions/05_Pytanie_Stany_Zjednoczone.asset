@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89a02b5875e96164ba6603ade3c2a198, type: 3}
-  m_Name: 02_Pytanie_Francja
+  m_Name: 05_Pytanie_Stany_Zjednoczone
   m_EditorClassIdentifier: 
-  answer: Francja
-  display_name: Francja
+  answer: Stany Zjednoczone
+  display_name: Stany Zjednoczone
   hints:
-  - Kraj znany z bagietek
-  - Ojczyzna Napoleona
-  - "Stolica to Pary\u017C"
+  - "Statua Wolno\u015Bci"
+  - Hollywood
+  - Stolica to Waszyngton
