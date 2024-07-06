@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadQuiz1()
     {
-        SceneManager.LoadScene("Quiz1Scene");
+        SceneManager.LoadScene("QuizABCDScene");
         Debug.Log("Quiz1");
     }
 

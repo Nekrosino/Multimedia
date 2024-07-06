@@ -28,3 +28,27 @@
     border-bottom-width: 2px;
     border-left-width: 2px;
 }
+
+#BackButton {
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+#BackButton:hover {
+    border-left-color: rgb(231, 0, 0);
+    border-right-color: rgb(231, 0, 0);
+    border-top-color: rgb(231, 0, 0);
+    border-bottom-color: rgb(231, 0, 0);
+}
+
+#LeftSideButton {
+    background-color: rgb(67, 59, 59);
+    flex-grow: 1;
+    background-image: resource('img/undo');
+}
+
+#BackButton:hover #LeftSideButton {
+    background-color: rgb(27, 255, 0);
+}
