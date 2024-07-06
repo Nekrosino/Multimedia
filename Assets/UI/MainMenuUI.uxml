@@ -1,2 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/stylesheet.uss?fileID=7433441132597879392&amp;guid=45c57bc9af33e3943a36fe831af97796&amp;type=3#stylesheet" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(0, 0, 0); align-items: center; justify-content: space-around; align-self: auto; flex-wrap: nowrap;">
+        <ui:Button text="Wybierz Quiz" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="button" style="align-items: center; justify-content: flex-start; align-self: center; width: auto; height: auto;" />
+        <ui:Button text="Autorzy" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AuthorsButton" class="button" style="align-items: center; justify-content: flex-start;" />
+        <ui:Button text="Wyjdź" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="align-items: center; justify-content: flex-start;" />
+    </ui:VisualElement>
 </ui:UXML>
