@@ -7,8 +7,9 @@
             <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 100px; height: 10px; margin-left: 5px;" />
         </ui:VisualElement>
         <ui:VisualElement name="MiddlePanel" style="flex-grow: 0; margin-top: 1%; border-top-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-bottom-width: 2px; margin-bottom: 0;">
-            <ui:Label tabindex="-1" text="Pytanie numer: x" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 35px; -unity-text-align: upper-center;" />
-            <ui:Label tabindex="-1" text="Pytanie xxxxxx" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="font-size: 35px; -unity-text-align: upper-center;" />
+            <ui:Label tabindex="-1" text="Pytanie numer: x" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestionNumber" style="font-size: 35px; -unity-text-align: upper-center;" />
+            <ui:Button text="Zmien numer pytania" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextQuestion" />
+            <ui:Label tabindex="-1" text="Pytanie xxxxxx" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestionText" style="font-size: 35px; -unity-text-align: upper-center;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; justify-content: center; height: 15%;">
             <ui:Label tabindex="-1" text="Miejsce na obrazek" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; justify-content: flex-start; align-items: flex-start; align-self: auto;" />
