@@ -212,6 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bcd954751eb9a47aebcf6006d1d963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizabcdcontroller: {fileID: 729062033}
+  pytania: []
 --- !u!1 &1350387268
 GameObject:
   m_ObjectHideFlags: 0

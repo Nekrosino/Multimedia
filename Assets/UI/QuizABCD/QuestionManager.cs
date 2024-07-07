@@ -6,14 +6,20 @@ public class QuestionManager : MonoBehaviour
 {
     public QuizABCDController quizabcdcontroller;
     public List<string> pytania = new List<string>();
+    public List<string> odpowiedzi = new List<string>();
     int questionNumber=0;
     string questionText;
+    string AnswerA;
+    string AnswerB;
+    string AnswerC;
+    string AnswerD;
     //Awake dziala Start nie dziala bo trzeba przed uruchomieniem klasy uzupelnic liste (chyba)
     private void Awake()
     {
        // questionNumber = 0;
 
         pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
+        odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
     }
 
     //Wysyla tresc oraz numer pytania do ControlleraQuizu zeby ten mogl go wrzucic na intrefejs
@@ -28,6 +34,15 @@ public class QuestionManager : MonoBehaviour
         //DODAC coroutine zeby po wcisnieciu przycisku dodatkowo wyswietlala sie poprawna odpowiedz i dopiero po jakis 2 sekundach ladowalo kolejna odpowiedz
         //===================================================================================================================================================
         questionNumber += 1;
+    }
+
+    public void sendAnswers()
+    {
+        AnswerA = odpowiedzi[0];
+        AnswerB = odpowiedzi[1];
+        AnswerC = odpowiedzi[2];
+        AnswerD = odpowiedzi[3];
+        quizabcdcontroller.setAnswer(1, AnswerA, AnswerB,AnswerC, AnswerD,1);
     }
 
 }

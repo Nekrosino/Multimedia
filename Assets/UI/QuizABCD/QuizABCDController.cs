@@ -14,9 +14,21 @@ public class QuizABCDController : MonoBehaviour
     RadioButton AnswerB;
     RadioButton AnswerC;
     RadioButton AnswerD;
+
+    Label AnswerALabel;
+    Label AnswerBLabel;
+    Label AnswerCLabel;
+    Label AnswerDLabel;
+
     Button nextQuestion;
     Label questionNumber;
     Label questionText;
+    VisualElement Image;
+
+    RadioButton selectedRadioButton;
+    int selectedanswer;
+    int correctanswer;
+    private string imgsrc;
 
     private void OnEnable()
     {
@@ -25,6 +37,15 @@ public class QuizABCDController : MonoBehaviour
         questionNumber = root.Q<Label>("QuestionNumber");
         nextQuestion = root.Q<Button>("NextQuestion");
         questionText = root.Q<Label>("QuestionText");
+        AnswerA = root.Q<RadioButton>("AnswerA");
+        AnswerB = root.Q<RadioButton>("AnswerB");
+        AnswerC = root.Q<RadioButton>("AnswerC");
+        AnswerD = root.Q<RadioButton>("AnswerD");
+        AnswerALabel = AnswerA.Query<Label>().First();
+        AnswerBLabel = AnswerB.Query<Label>().First();
+        AnswerCLabel = AnswerC.Query<Label>().First();
+        AnswerDLabel = AnswerD.Query<Label>().First();
+        Image = root.Q<VisualElement>("Image");
         handleQuestions();
 
 
@@ -37,6 +58,52 @@ public class QuizABCDController : MonoBehaviour
         {
             handleQuestions();
         };
+    }
+
+    public void Update()
+    {
+        AnswerA.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
+        AnswerB.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
+        AnswerC.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
+        AnswerD.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
+        checkAnswer(selectedanswer, correctanswer);
+    }
+
+
+    private void OnRadioButtonChanged(ChangeEvent<bool> evt)
+    {
+        if(evt.newValue)
+        {
+            selectedRadioButton = (RadioButton)evt.target;
+            Debug.Log($"Selected: {selectedRadioButton.name}");
+            if(selectedRadioButton.name == "AnswerA" ) 
+            {
+                selectedanswer = 1;
+                Debug.Log($"Selected: {selectedanswer}");
+                Debug.Log($"Correct: {correctanswer}");
+            }
+
+            else if(selectedRadioButton.name == "AnswerB")
+            {
+                selectedanswer = 2;
+                Debug.Log($"Selected: {selectedanswer}");
+                Debug.Log($"Correct: {correctanswer}");
+            }
+
+            else if( selectedRadioButton.name == "AnswerC")
+            {
+                selectedanswer = 3;
+                Debug.Log($"Selected: {selectedanswer}");
+                Debug.Log($"Correct: {correctanswer}");
+            }
+
+            else if( selectedRadioButton.name == "AnswerD")
+            {
+                selectedanswer = 4;
+                Debug.Log($"Selected: {selectedanswer}");
+                Debug.Log($"Correct: {correctanswer}");
+            }
+        }
     }
 
 
@@ -57,9 +124,97 @@ public class QuizABCDController : MonoBehaviour
         questionText.text = questiontext;
     }
 
+    public void setAnswer(int questionnumber, string answertextA, string answertextB, string answertextC, string answertextD, int correctanswer)
+    {
+        AnswerALabel.text = "A. " + answertextA;
+        AnswerBLabel.text = "B. " + answertextB;
+        AnswerCLabel.text = "C. " + answertextC;
+        AnswerDLabel.text = "D. " + answertextD;
+        setCorrectAnswer(correctanswer);
+    }
+
     //obsluga pytan - sluzy jako funkcja posrednicza zeby odbierac dane pytan
     public void handleQuestions()
     {
+        imgsrc = "placeholder";
         questionManager.sendQuestion();
+        questionManager.sendAnswers();
+       
+        Image.style.backgroundImage = Resources.Load<Texture2D>("img/" + imgsrc);
+      
+    }
+
+    public void checkAnswer(int selectedanswer,int correctanswer)
+    {
+        if (selectedanswer == correctanswer)
+        {
+            if(selectedanswer == 1)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 255, 0, 255);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+
+            }
+            else if(selectedanswer== 2)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 255, 0, 255);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            }
+            else if(selectedanswer == 3)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 255, 0, 255);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            }
+            else if (selectedanswer == 4)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 255, 0, 255);
+            }
+        }
+        else
+        {
+            if(selectedanswer == 1)
+            {
+                AnswerA.style.backgroundColor = new Color(255, 0, 0, 255);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+
+            }
+            else if(selectedanswer == 2)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(255, 0, 0, 255);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            }
+            else if(selectedanswer==3)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(255, 0, 0, 255);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            }
+            else if(selectedanswer==4)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(255, 0, 0, 255);
+            }
+        }
+
+    }
+
+    public void setCorrectAnswer(int correctanswer)
+    {
+        this.correctanswer = correctanswer;
     }
 }
