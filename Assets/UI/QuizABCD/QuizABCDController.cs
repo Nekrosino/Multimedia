@@ -50,12 +50,14 @@ public class QuizABCDController : MonoBehaviour
             questionText.text = questionManager.nextQuestionText(nextQuestionNumber);
         }*/
 
+    //Ustawienie numeru pytania oraz tresci na interfejsie (wywolywana w QuestionManager gdzie zawarte sa tresci pytan
     public void setQuestion(int questionnumber, string questiontext)
     {
         questionNumber.text = "Pytanie numer: " + (questionnumber+1);
         questionText.text = questiontext;
     }
 
+    //obsluga pytan - sluzy jako funkcja posrednicza zeby odbierac dane pytan
     public void handleQuestions()
     {
         questionManager.sendQuestion();
