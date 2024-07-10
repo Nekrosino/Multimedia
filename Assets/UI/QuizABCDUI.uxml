@@ -17,18 +17,18 @@
         <ui:VisualElement name="BottomPanel" style="flex-grow: 1; flex-direction: row; align-items: flex-start;">
             <ui:VisualElement style="flex-grow: 1; width: 50%;">
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
-                    <ui:RadioButton label="A. Odpowiedź X" value="false" />
+                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerA" />
                 </ui:VisualElement>
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
-                    <ui:RadioButton label="A. Odpowiedź X" value="false" />
+                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerB" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 50%;">
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
-                    <ui:RadioButton label="A. Odpowiedź X" value="false" />
+                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerC" />
                 </ui:VisualElement>
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
-                    <ui:RadioButton label="A. Odpowiedź X" value="false" />
+                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerD" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

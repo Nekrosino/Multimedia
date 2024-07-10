@@ -7,6 +7,7 @@ public class QuestionManager : MonoBehaviour
     public QuizABCDController quizabcdcontroller;
     public List<string> pytania = new List<string>();
     public List<string> odpowiedzi = new List<string>();
+    
     int questionNumber=0;
     string questionText;
     string AnswerA;
@@ -18,15 +19,27 @@ public class QuestionManager : MonoBehaviour
     {
        // questionNumber = 0;
 
+       // pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
+       // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
+ 
+    }
+
+    //Rozwiazanie zastepcze
+    public void QuestionInitialize()
+    {
+        pytania.RemoveRange(0, pytania.Count);
+        odpowiedzi.RemoveRange(0, odpowiedzi.Count);
+
         pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
         odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
     }
-
     //Wysyla tresc oraz numer pytania do ControlleraQuizu zeby ten mogl go wrzucic na intrefejs
     public void sendQuestion()
     {
+        QuestionInitialize();
         //przypisujemy tresc pytania z listy o numerze pytania czyli dla Pytania 0 - dostajemy tresc z indeksu numer 0 
         questionText = pytania[questionNumber];
+        Debug.Log("Wys³ano: "+questionText);
         //wywolanie funkcji z kontrolera ktora ustawia numer pytania i jego tresc
         quizabcdcontroller.setQuestion(questionNumber, questionText);
         //zwiekszenie indeksu aby po kliknieciu przycisku zaladowalo kolejne pytanie

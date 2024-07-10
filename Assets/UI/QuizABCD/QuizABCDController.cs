@@ -122,6 +122,8 @@ public class QuizABCDController : MonoBehaviour
     {
         questionNumber.text = "Pytanie numer: " + (questionnumber+1);
         questionText.text = questiontext;
+        Debug.Log("Otrzymano" + questiontext);
+   
     }
 
     public void setAnswer(int questionnumber, string answertextA, string answertextB, string answertextC, string answertextD, int correctanswer)
