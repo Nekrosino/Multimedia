@@ -15,6 +15,10 @@ public class QuestionManager : MonoBehaviour
     string AnswerB;
     string AnswerC;
     string AnswerD;
+    int a = 0;
+    int b = 1;
+    int c = 2;
+    int d = 3;
     //Awake dziala Start nie dziala bo trzeba przed uruchomieniem klasy uzupelnic liste (chyba)
     private void Awake()
     {
@@ -32,8 +36,9 @@ public class QuestionManager : MonoBehaviour
         pytania.RemoveRange(0, pytania.Count);
         odpowiedzi.RemoveRange(0, odpowiedzi.Count);
 
-        pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
-        dataBase.AddQuestionsToQuiz(odpowiedzi);
+        //pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
+        dataBase.AddQuestionsToQuiz(pytania);
+        dataBase.AddAnswersToQuiz(odpowiedzi);
         Debug.Log("QuestionInitializing testowe: " + odpowiedzi[1]);
        // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
     }
@@ -55,11 +60,16 @@ public class QuestionManager : MonoBehaviour
 
     public void sendAnswers()
     {
-        AnswerA = odpowiedzi[0];
-        AnswerB = odpowiedzi[1];
-        AnswerC = odpowiedzi[2];
-        AnswerD = odpowiedzi[3];
-        quizabcdcontroller.setAnswer(1, AnswerA, AnswerB,AnswerC, AnswerD,1);
+        AnswerA = odpowiedzi[a];
+        AnswerB = odpowiedzi[b];
+        AnswerC = odpowiedzi[c];
+        AnswerD = odpowiedzi[d];
+        quizabcdcontroller.setAnswer(1, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+        a += 4;
+        b += 4;
+        c += 4;
+        d += 4;
+        //quizabcdcontroller.setAnswer(2, AnswerA, AnswerB, AnswerC, AnswerD, 4);
     }
 
 }

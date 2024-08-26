@@ -50,6 +50,26 @@ public class DataBase : MonoBehaviour
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warsaw', 0);";
                     command.ExecuteNonQuery();
                 }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'What is the capital of Poland?';";
+                long questionExists2 = (long)command.ExecuteScalar();
+
+                if (questionExists2 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('What is the capital of Poland?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warsaw', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'London', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Paris', 0);";
+                    command.ExecuteNonQuery();
+                }
+
             }
         }
     }
@@ -78,7 +98,7 @@ public class DataBase : MonoBehaviour
         }
     }
 
-    public void AddQuestionsToQuiz(List <string> odpowiedzi)
+    public void AddAnswersToQuiz(List <string> odpowiedzi)
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
         // List<string> pytania = new List<string>();
@@ -101,6 +121,34 @@ public class DataBase : MonoBehaviour
 
         }
         foreach (string element in odpowiedzi)
+        {
+            Debug.Log("Test " + element);
+        }
+    }
+
+    public void AddQuestionsToQuiz(List <string> pytania)
+    {
+        dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
+        // List<string> pytania = new List<string>();
+        using (var connection = new SqliteConnection(dbPath))
+        {
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Questions";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string answerText = reader.GetString(1);
+                        pytania.Add(answerText);
+
+                    }
+                }
+            }
+
+        }
+        foreach (string element in pytania)
         {
             Debug.Log("Test " + element);
         }
