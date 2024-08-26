@@ -7,6 +7,7 @@ public class QuizABCDController : MonoBehaviour
 {
     public SceneController sceneController;
     public QuestionManager questionManager;
+    public DataBase dataBase;
     VisualElement root;
 
     Button returnMenuButton;
@@ -47,6 +48,7 @@ public class QuizABCDController : MonoBehaviour
         AnswerDLabel = AnswerD.Query<Label>().First();
         Image = root.Q<VisualElement>("Image");
         handleQuestions();
+       
 
 
         returnMenuButton.clicked += () =>
@@ -57,6 +59,7 @@ public class QuizABCDController : MonoBehaviour
         nextQuestion.clicked += () =>
         {
             handleQuestions();
+            dataBase.AddQuestionsToQuiz();
         };
     }
 

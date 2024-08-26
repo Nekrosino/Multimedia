@@ -23,21 +23,30 @@ public class DataBase : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
+                // Tworzenie tabel jeœli nie istniej¹
                 command.CommandText = "CREATE TABLE IF NOT EXISTS Questions (QuestionID INTEGER PRIMARY KEY AUTOINCREMENT, QuestionText TEXT NOT NULL);";
                 command.ExecuteNonQuery();
 
                 command.CommandText = "CREATE TABLE IF NOT EXISTS Answers (AnswerID INTEGER PRIMARY KEY AUTOINCREMENT, QuestionID INTEGER NOT NULL, AnswerText TEXT NOT NULL, IsCorrect INTEGER NOT NULL, FOREIGN KEY (QuestionID) REFERENCES Questions(QuestionID));";
                 command.ExecuteNonQuery();
 
-                command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('What is the capital of France?');";
-                command.ExecuteNonQuery();
+                // Sprawdzenie, czy pytanie ju¿ istnieje
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'What is the capital of France?';";
+                long questionExists = (long)command.ExecuteScalar();
 
-                command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Paris', 1);";
-                command.ExecuteNonQuery();
-                command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'London', 0);";
-                command.ExecuteNonQuery();
-                command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
-                command.ExecuteNonQuery();
+                if (questionExists == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('What is the capital of France?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Paris', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'London', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
+                    command.ExecuteNonQuery();
+                }
             }
         }
     }
@@ -63,6 +72,33 @@ public class DataBase : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void AddQuestionsToQuiz()
+    {
+       List<string> pytania = new List<string>();
+        using (var connection = new SqliteConnection(dbPath))
+        {
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Answers";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string answerText = reader.GetString(2);
+                        pytania.Add(answerText);
+                 
+                    }
+                }
+            }
+
+        }
+        foreach (string element in pytania)
+        {
+            Debug.Log("Test " + element);
         }
     }
 }
