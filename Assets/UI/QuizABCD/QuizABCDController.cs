@@ -59,7 +59,7 @@ public class QuizABCDController : MonoBehaviour
         nextQuestion.clicked += () =>
         {
             handleQuestions();
-            dataBase.AddQuestionsToQuiz();
+           // dataBase.AddQuestionsToQuiz();
         };
     }
 

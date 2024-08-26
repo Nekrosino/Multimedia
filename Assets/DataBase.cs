@@ -16,6 +16,7 @@ public class DataBase : MonoBehaviour
         LogAnswers();
     }
 
+
     void CreateDatabase()
     {
         using (var connection = new SqliteConnection(dbPath))
@@ -46,6 +47,8 @@ public class DataBase : MonoBehaviour
                     command.ExecuteNonQuery();
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
                     command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warsaw', 0);";
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -75,9 +78,10 @@ public class DataBase : MonoBehaviour
         }
     }
 
-    public void AddQuestionsToQuiz()
+    public void AddQuestionsToQuiz(List <string> odpowiedzi)
     {
-       List<string> pytania = new List<string>();
+        dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
+        // List<string> pytania = new List<string>();
         using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
@@ -89,14 +93,14 @@ public class DataBase : MonoBehaviour
                     while (reader.Read())
                     {
                         string answerText = reader.GetString(2);
-                        pytania.Add(answerText);
+                        odpowiedzi.Add(answerText);
                  
                     }
                 }
             }
 
         }
-        foreach (string element in pytania)
+        foreach (string element in odpowiedzi)
         {
             Debug.Log("Test " + element);
         }

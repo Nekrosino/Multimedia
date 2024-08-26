@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestionManager : MonoBehaviour
 {
     public QuizABCDController quizabcdcontroller;
+    public DataBase dataBase;
     public List<string> pytania = new List<string>();
     public List<string> odpowiedzi = new List<string>();
     
@@ -17,21 +18,24 @@ public class QuestionManager : MonoBehaviour
     //Awake dziala Start nie dziala bo trzeba przed uruchomieniem klasy uzupelnic liste (chyba)
     private void Awake()
     {
-       // questionNumber = 0;
+        // questionNumber = 0;
 
-       // pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
-       // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
- 
+        // pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
+        // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
+        //dataBase.AddQuestionsToQuiz(odpowiedzi);
     }
 
     //Rozwiazanie zastepcze
     public void QuestionInitialize()
-    {
+    {   
+        
         pytania.RemoveRange(0, pytania.Count);
         odpowiedzi.RemoveRange(0, odpowiedzi.Count);
 
         pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
-        odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
+        dataBase.AddQuestionsToQuiz(odpowiedzi);
+        Debug.Log("QuestionInitializing testowe: " + odpowiedzi[1]);
+       // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
     }
     //Wysyla tresc oraz numer pytania do ControlleraQuizu zeby ten mogl go wrzucic na intrefejs
     public void sendQuestion()
