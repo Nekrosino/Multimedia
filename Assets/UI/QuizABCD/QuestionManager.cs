@@ -65,6 +65,9 @@ public class QuestionManager : MonoBehaviour
         AnswerC = odpowiedzi[c];
         AnswerD = odpowiedzi[d];
         quizabcdcontroller.setAnswer(1, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+/*          ==============================================
+            TYMCZASOWE ROZWIAZANIE KWESTII KOLEJNYCH PYTAN
+            ==============================================*/
         a += 4;
         b += 4;
         c += 4;

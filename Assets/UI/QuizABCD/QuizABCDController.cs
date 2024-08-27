@@ -57,14 +57,25 @@ public class QuizABCDController : MonoBehaviour
         };
 
         nextQuestion.clicked += () =>
-        {
+        {   
+
+
+            AnswerA.value = false;
+            AnswerB.value = false;
+            AnswerC.value = false;
+            AnswerD.value = false;
+            AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+            AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+            AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+            AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             handleQuestions();
-           // dataBase.AddQuestionsToQuiz();
+            // dataBase.AddQuestionsToQuiz();
+
         };
     }
 
     public void Update()
-    {
+    {   
         AnswerA.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
         AnswerB.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
         AnswerC.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
@@ -153,7 +164,7 @@ public class QuizABCDController : MonoBehaviour
     {
         if (selectedanswer == correctanswer)
         {
-            if(selectedanswer == 1)
+            if(selectedanswer == 1 && AnswerA.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 255, 0, 255);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
@@ -161,31 +172,38 @@ public class QuizABCDController : MonoBehaviour
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
 
             }
-            else if(selectedanswer== 2)
+            else if(selectedanswer== 2 && AnswerB.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(0, 255, 0, 255);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             }
-            else if(selectedanswer == 3)
+            else if(selectedanswer == 3 && AnswerC.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 255, 0, 255);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             }
-            else if (selectedanswer == 4)
+            else if (selectedanswer == 4 && AnswerD.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 255, 0, 255);
             }
+            else if(AnswerA.value == false || AnswerB.value == false || AnswerC.value == false || AnswerD.value == false)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            }
         }
         else
         {
-            if(selectedanswer == 1)
+            if(selectedanswer == 1 && AnswerA.value)
             {
                 AnswerA.style.backgroundColor = new Color(255, 0, 0, 255);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
@@ -193,26 +211,33 @@ public class QuizABCDController : MonoBehaviour
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
 
             }
-            else if(selectedanswer == 2)
+            else if(selectedanswer == 2 && AnswerB.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(255, 0, 0, 255);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             }
-            else if(selectedanswer==3)
+            else if(selectedanswer==3 && AnswerC.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(255, 0, 0, 255);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             }
-            else if(selectedanswer==4)
+            else if(selectedanswer==4 && AnswerD.value)
             {
                 AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(255, 0, 0, 255);
+            }
+            else if (AnswerA.value == false || AnswerB.value == false || AnswerC.value == false || AnswerD.value == false)
+            {
+                AnswerA.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             }
         }
 
