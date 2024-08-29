@@ -64,15 +64,35 @@ public class QuestionManager : MonoBehaviour
         AnswerB = odpowiedzi[b];
         AnswerC = odpowiedzi[c];
         AnswerD = odpowiedzi[d];
-        quizabcdcontroller.setAnswer(1, AnswerA, AnswerB, AnswerC, AnswerD, 1);
-/*          ==============================================
-            TYMCZASOWE ROZWIAZANIE KWESTII KOLEJNYCH PYTAN
-            ==============================================*/
+        if(questionNumber == 1)
+            quizabcdcontroller.setAnswer(1, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+        if (questionNumber == 2)
+            quizabcdcontroller.setAnswer(2, AnswerA, AnswerB, AnswerC, AnswerD, 4);
+        if (questionNumber == 3)
+            quizabcdcontroller.setAnswer(3, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+        if (questionNumber == 4)
+            quizabcdcontroller.setAnswer(4, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+        if (questionNumber == 5)
+            quizabcdcontroller.setAnswer(5, AnswerA, AnswerB, AnswerC, AnswerD, 4);
+        if (questionNumber == 6)
+            quizabcdcontroller.setAnswer(6, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+        if (questionNumber == 7)
+            quizabcdcontroller.setAnswer(7, AnswerA, AnswerB, AnswerC, AnswerD, 2);
+        if (questionNumber == 8)
+            quizabcdcontroller.setAnswer(8, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+        if (questionNumber == 9)
+            quizabcdcontroller.setAnswer(9, AnswerA, AnswerB, AnswerC, AnswerD, 2);
+        if (questionNumber == 10)
+            quizabcdcontroller.setAnswer(10, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+
+        /*          ==============================================
+                    TYMCZASOWE ROZWIAZANIE KWESTII KOLEJNYCH PYTAN
+                    ==============================================*/
         a += 4;
         b += 4;
         c += 4;
         d += 4;
-        //quizabcdcontroller.setAnswer(2, AnswerA, AnswerB, AnswerC, AnswerD, 4);
+       // quizabcdcontroller.setAnswer(2, AnswerA, AnswerB, AnswerC, AnswerD, 4);
     }
 
 }

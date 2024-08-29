@@ -32,41 +32,193 @@ public class DataBase : MonoBehaviour
                 command.ExecuteNonQuery();
 
                 // Sprawdzenie, czy pytanie ju¿ istnieje
-                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'What is the capital of France?';";
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Francji?';";
                 long questionExists = (long)command.ExecuteScalar();
 
                 if (questionExists == 0)
                 {
                     // Jeœli pytanie nie istnieje, wstaw dane
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('What is the capital of France?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Francji?');";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Paris', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Pary¿', 1);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'London', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Londyn', 0);";
                     command.ExecuteNonQuery();
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warsaw', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warszawa', 0);";
                     command.ExecuteNonQuery();
                 }
 
-                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'What is the capital of Poland?';";
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Polski?';";
                 long questionExists2 = (long)command.ExecuteScalar();
 
                 if (questionExists2 == 0)
                 {
                     // Jeœli pytanie nie istnieje, wstaw dane
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('What is the capital of Poland?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Polski?');";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Warsaw', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Radom', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'London', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Gniezno', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Berlin', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Kraków', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Paris', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Warszawa', 1);";
+                    command.ExecuteNonQuery();
+                }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Niemiec?';";
+                long questionExists3 = (long)command.ExecuteScalar();
+
+                if (questionExists3 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Niemiec?');";
+                    command.ExecuteNonQuery();
+
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Hamburg', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Monachium', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Berlin', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Dortmund', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ W³och?';";
+                long questionExists4 = (long)command.ExecuteScalar();
+
+                if (questionExists4 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ W³och?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Rzym', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Lizbona', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Ateny', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Wiedeñ', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Hiszpanii?';";
+               long questionExists5 = (long)command.ExecuteScalar();
+
+                if (questionExists == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Hiszpanii?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Barcelona', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Sewilla', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Valencia', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Madryt', 1);";
+                    command.ExecuteNonQuery();
+                }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Wielkiej Brytanii?';";
+                long questionExists6 = (long)command.ExecuteScalar();
+
+                if (questionExists6 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Wielkiej Brytanii?');";
+                    command.ExecuteNonQuery();
+
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Edynburg', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Dublin', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Londyn', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Manchester', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Portugalii?';";
+               long questionExists7 = (long)command.ExecuteScalar();
+
+                if (questionExists7 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Portugalii?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (7, 'Porto', 0);";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (7, 'Lizbona', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (7, 'Madryt', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (7, 'Barcelona', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+                // Pytanie o Grecjê
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Grecji?';";
+                long questionExists8 = (long)command.ExecuteScalar();
+
+                if (questionExists8 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Grecji?');";
+                    command.ExecuteNonQuery();
+
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (8, 'Saloniki', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (8, 'Heraklion', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (8, 'Ateny', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (8, 'Patras', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Rosji?';";
+                long questionExists9 = (long)command.ExecuteScalar();
+
+                if (questionExists9 == 0)
+                {
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Rosji?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (9, 'Sankt Petersburg', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (9, 'Moskwa', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (9, 'Nowosybirsk', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (9, 'Kazañ', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Ukrainy?';";
+                long questionExists10 = (long)command.ExecuteScalar();
+
+                if (questionExists10 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Ukrainy?');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Moskwa', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Radom', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Kijów', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Lwów', 0);";
                     command.ExecuteNonQuery();
                 }
 
