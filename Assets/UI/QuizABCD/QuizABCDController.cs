@@ -99,6 +99,8 @@ public class QuizABCDController : MonoBehaviour
         rightbar.AddToClassList("end2");
         leftbar.AddToClassList("end");
         Title.AddToClassList("end3");
+        questionNumber.AddToClassList("end4");
+        questionText.AddToClassList("end5");
         Debug.Log("Dodano korutynke");
     }
 
