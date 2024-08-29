@@ -56,3 +56,51 @@
 #BackButton:hover #LeftSideButton {
     background-color: rgb(27, 255, 0);
 }
+
+.start {
+    flex-grow: 1;
+    background-color: rgb(0, 0, 0);
+    width: 100px;
+    height: 10px;
+    margin-right: 5px;
+    translate: -500px 0;
+    transform-origin: center;
+}
+
+.end {
+    translate: 0 0;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transform-origin: center;
+    transition-property: translate;
+    position: relative;
+}
+
+.start2 {
+    flex-grow: 1;
+    background-color: rgb(0, 0, 0);
+    width: 100px;
+    height: 10px;
+    margin-left: 5px;
+    translate: 500px 0;
+}
+
+.end2 {
+    translate: 0 0;
+    transition-duration: 1s;
+    transition-property: translate;
+    transition-timing-function: linear;
+}
+
+.start3 {
+    -unity-text-align: upper-center;
+    font-size: 50px;
+    -unity-font-style: bold;
+    translate: 0 -270px;
+}
+
+.end3 {
+    translate: 0 0;
+    transition-timing-function: ease-out-bounce;
+    transition-duration: 2s;
+}

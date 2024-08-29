@@ -64,26 +64,56 @@ public class QuestionManager : MonoBehaviour
         AnswerB = odpowiedzi[b];
         AnswerC = odpowiedzi[c];
         AnswerD = odpowiedzi[d];
-        if(questionNumber == 1)
+        if (questionNumber == 1)
+        {
             quizabcdcontroller.setAnswer(1, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+            quizabcdcontroller.setImage(1);
+        }
         if (questionNumber == 2)
+        {
             quizabcdcontroller.setAnswer(2, AnswerA, AnswerB, AnswerC, AnswerD, 4);
-        if (questionNumber == 3)
+            quizabcdcontroller.setImage(2);
+        }
+        if (questionNumber == 3) //Niemcy
+        {
             quizabcdcontroller.setAnswer(3, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+            quizabcdcontroller.setImage(3);
+        }
         if (questionNumber == 4)
+        {
             quizabcdcontroller.setAnswer(4, AnswerA, AnswerB, AnswerC, AnswerD, 1);
+            quizabcdcontroller.setImage(4);
+        }
         if (questionNumber == 5)
+        {
             quizabcdcontroller.setAnswer(5, AnswerA, AnswerB, AnswerC, AnswerD, 4);
+            quizabcdcontroller.setImage(5);
+        }
         if (questionNumber == 6)
+        {
             quizabcdcontroller.setAnswer(6, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+            quizabcdcontroller.setImage(6);
+        }
         if (questionNumber == 7)
+        {
             quizabcdcontroller.setAnswer(7, AnswerA, AnswerB, AnswerC, AnswerD, 2);
+            quizabcdcontroller.setImage(7);
+        }
         if (questionNumber == 8)
+        {
             quizabcdcontroller.setAnswer(8, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+            quizabcdcontroller.setImage(8);
+        }
         if (questionNumber == 9)
+        {
             quizabcdcontroller.setAnswer(9, AnswerA, AnswerB, AnswerC, AnswerD, 2);
+            quizabcdcontroller.setImage(9);
+        }
         if (questionNumber == 10)
+        {
             quizabcdcontroller.setAnswer(10, AnswerA, AnswerB, AnswerC, AnswerD, 3);
+            quizabcdcontroller.setImage(10);
+        }
 
         /*          ==============================================
                     TYMCZASOWE ROZWIAZANIE KWESTII KOLEJNYCH PYTAN
