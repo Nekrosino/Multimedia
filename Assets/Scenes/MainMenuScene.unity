@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 911710921}
   - component: {fileID: 911710924}
   - component: {fileID: 911710923}
-  - component: {fileID: 911710925}
   - component: {fileID: 911710926}
   - component: {fileID: 911710927}
   m_Layer: 5
@@ -201,19 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 911710923}
---- !u!114 &911710925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911710920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ea7856310575948bd72fe43e01510d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music: {fileID: 0}
 --- !u!114 &911710926
 MonoBehaviour:
   m_ObjectHideFlags: 0
