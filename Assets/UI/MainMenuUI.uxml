@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/stylesheet.uss?fileID=7433441132597879392&amp;guid=45c57bc9af33e3943a36fe831af97796&amp;type=3#stylesheet" />
-    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(72, 63, 61); align-items: center; justify-content: space-around; align-self: auto; flex-wrap: nowrap; background-image: none; -unity-background-scale-mode: scale-and-crop;">
-        <ui:Button text="Wybierz Quiz" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="button" style="align-items: center; justify-content: flex-start; align-self: center; width: auto; height: auto;" />
-        <ui:Button text="Autorzy" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AuthorsButton" class="button" style="align-items: center; justify-content: flex-start;" />
-        <ui:Button text="Wyjdź" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="align-items: center; justify-content: flex-start;" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(16, 0, 43); align-items: center; justify-content: space-around; align-self: auto; flex-wrap: nowrap; background-image: none; -unity-background-scale-mode: scale-and-crop;">
+        <ui:Button text="WYBIERZ QUIZ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="button" style="align-items: center; justify-content: flex-start; align-self: center; width: 15%; height: auto; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; font-size: 24px;" />
+        <ui:Button text="AUTOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AuthorsButton" class="button" style="align-items: center; justify-content: flex-start; font-size: 24px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
+        <ui:Button text="WYJDŹ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="align-items: center; justify-content: flex-start; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; font-size: 24px;" />
     </ui:VisualElement>
 </ui:UXML>

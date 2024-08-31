@@ -3,17 +3,23 @@
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
-    background-color: rgba(68, 83, 142, 0.21);
+    background-color: rgb(157, 78, 221);
     color: rgb(255, 255, 255);
     border-top-width: 5px;
     border-right-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 5px;
-    width: 10%;
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
+    width: 15%;
+    border-left-color: rgb(123, 44, 191);
+    border-right-color: rgb(123, 44, 191);
+    border-top-color: rgb(123, 44, 191);
+    border-bottom-color: rgb(123, 44, 191);
+    -unity-font-style: bold;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
+    -unity-font: url("project://database/Assets/UI/Fonts/jaro-cyrillic.otf?fileID=12800000&guid=41a1a921b163c04409e00911ca72a133&type=3#jaro-cyrillic");
+    -unity-text-outline-color: rgba(0, 0, 0, 0.08);
+    -unity-text-outline-width: 1px;
+    font-size: 18px;
 }
 
 .button:hover {
@@ -21,40 +27,43 @@
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
-    background-color: rgba(68, 83, 142, 0.21);
-    color: rgb(166, 0, 0);
-    border-left-color: rgb(214, 0, 0);
-    border-right-color: rgb(214, 0, 0);
-    border-top-color: rgb(214, 0, 0);
-    border-bottom-color: rgb(214, 0, 0);
+    background-color: rgb(90, 24, 154);
+    color: rgb(224, 170, 255);
+    border-left-color: rgb(60, 9, 108);
+    border-right-color: rgb(60, 9, 108);
+    border-top-color: rgb(60, 9, 108);
+    border-bottom-color: rgb(60, 9, 108);
     border-top-width: 5px;
     border-right-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 5px;
-}
-
-#BackButton {
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-}
-
-#BackButton:hover {
-    border-left-color: rgb(231, 0, 0);
-    border-right-color: rgb(231, 0, 0);
-    border-top-color: rgb(231, 0, 0);
-    border-bottom-color: rgb(231, 0, 0);
+    scale: 1.1 1.1;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-elastic;
+    font-size: 18px;
 }
 
 #LeftSideButton {
-    background-color: rgb(67, 59, 59);
+    background-color: rgb(157, 78, 221);
     flex-grow: 1;
     background-image: resource('img/undo');
+    scale: 1 1;
 }
 
 #BackButton:hover #LeftSideButton {
-    background-color: rgb(27, 255, 0);
+    background-color: rgb(90, 24, 154);
+    scale: 1.1 1;
+}
+
+#RightSideButton {
+    background-color: rgb(157, 78, 221);
+    flex-grow: 1;
+    background-image: none;
+}
+
+#BackButton:hover #RightSideButton {
+    background-color: rgb(90, 24, 154);
+    scale: 1.1 1;
 }
 
 .start {
@@ -152,4 +161,16 @@
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: rgb(101, 94, 60);
+}
+
+#BackButton:hover {
+    transition-timing-function: ease-out-elastic;
+    scale: 1.1 1.1;
+    transition-duration: 1s;
+}
+
+.odpowiedzi {
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
+    font-size: 20px;
 }
