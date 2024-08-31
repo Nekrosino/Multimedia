@@ -5,4 +5,5 @@
         <ui:Button text="AUTOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AuthorsButton" class="button" style="align-items: center; justify-content: flex-start; font-size: 24px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
         <ui:Button text="WYJDŹ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="align-items: center; justify-content: flex-start; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; font-size: 24px;" />
     </ui:VisualElement>
+    <ui:Label tabindex="-1" text="Wersja Alpha 0.1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Version" style="position: absolute; color: rgba(255, 255, 255, 0.18); transform-origin: left top;" />
 </ui:UXML>
