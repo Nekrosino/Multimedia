@@ -77,6 +77,9 @@ public class QuizABCDController : MonoBehaviour
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+            questionNumber.RemoveFromClassList("end4");
+            questionText.RemoveFromClassList("end5");
+            StartCoroutine(TestowaKorutynka());
             handleQuestions();
             // dataBase.AddQuestionsToQuiz();
 

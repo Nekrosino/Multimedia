@@ -173,4 +173,5 @@
     color: rgb(255, 255, 255);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
     font-size: 20px;
+    margin-right: 10px;
 }

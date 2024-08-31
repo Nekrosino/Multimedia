@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 1206573769}
   - component: {fileID: 1206573768}
   - component: {fileID: 1206573767}
+  - component: {fileID: 1206573770}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -443,6 +444,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22cec3c18554c9645a87474d78193888, type: 2}
   - {fileID: 11400000, guid: 0eea9df0972c4b24996ba4a0c51f14c7, type: 2}
   - {fileID: 11400000, guid: b6410253902d74c448d5193775a3bc4e, type: 2}
+--- !u!114 &1206573770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206573764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa204df4fb069448b19a1e4bd29b574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 61d0b547772dc3a4a9d3a52413e8ce85, type: 3}
 --- !u!1 &1372847445
 GameObject:
   m_ObjectHideFlags: 0
