@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/stylesheet.uss?fileID=7433441132597879392&amp;guid=45c57bc9af33e3943a36fe831af97796&amp;type=3#stylesheet" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(16, 0, 43); justify-content: space-around;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsSummary" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&amp;guid=f3d6f331f5b10e840b780d60f30f86d3&amp;type=2#jaro-cyrillic SDF&quot;); color: rgb(255, 255, 255); -unity-text-align: upper-center; font-size: 48px;" />
+        <ui:Button text="Wróć do menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="button" style="align-self: center; justify-content: flex-start;" />
+    </ui:VisualElement>
+</ui:UXML>

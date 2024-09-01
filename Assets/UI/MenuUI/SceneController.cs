@@ -61,4 +61,9 @@ public class SceneController : MonoBehaviour
         Application.Quit();
         Debug.Log("Wyszedles z gry");
     }
+
+    public void LoadSummaryScene()
+    {
+        SceneManager.LoadScene("SummaryScene");
+    }
 }

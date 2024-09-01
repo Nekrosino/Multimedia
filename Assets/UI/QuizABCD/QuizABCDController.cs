@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class QuizABCDController : MonoBehaviour
 {
     public SceneController sceneController;
     public QuestionManager questionManager;
-    [SerializeField] Points points;
+    public SummaryController summaryController;
+   // [SerializeField] Points points;
     public DataBase dataBase;
     VisualElement root;
     bool hasAwardedPoint=false;
@@ -34,6 +36,8 @@ public class QuizABCDController : MonoBehaviour
     int selectedanswer;
     int correctanswer;
     private string imgsrc;
+    int questionCount = 0;
+    int score;
 
 
     private void OnEnable()
@@ -82,6 +86,14 @@ public class QuizABCDController : MonoBehaviour
             questionText.RemoveFromClassList("end5");
             StartCoroutine(TestowaKorutynka());
             handleQuestions();
+            questionCount++;
+            if(questionCount >= 9)
+            {   
+
+                sceneController.LoadSummaryScene();
+                
+
+            }
             // dataBase.AddQuestionsToQuiz();
 
         };
@@ -106,6 +118,12 @@ public class QuizABCDController : MonoBehaviour
         questionNumber.AddToClassList("end4");
         questionText.AddToClassList("end5");
         Debug.Log("Dodano korutynke");
+    }
+
+    public int getPoints(int score)
+    {
+        score = this.score;
+        return score;
     }
 
     private void OnRadioButtonChanged(ChangeEvent<bool> evt)
@@ -223,7 +241,7 @@ public class QuizABCDController : MonoBehaviour
                 if(!hasAwardedPoint)
                 {
                     hasAwardedPoint = true;
-                    points.givePoint();
+                    Points.Instance.givePoint();
                 }
                    
 
@@ -237,7 +255,7 @@ public class QuizABCDController : MonoBehaviour
                 if (!hasAwardedPoint)
                 {
                     hasAwardedPoint = true;
-                    points.givePoint();
+                    Points.Instance.givePoint();
                 }
 
             }
@@ -250,7 +268,7 @@ public class QuizABCDController : MonoBehaviour
                 if (!hasAwardedPoint)
                 {
                     hasAwardedPoint = true;
-                    points.givePoint();
+                    Points.Instance.givePoint();
                 }
 
             }
@@ -263,7 +281,7 @@ public class QuizABCDController : MonoBehaviour
                 if (!hasAwardedPoint)
                 {
                     hasAwardedPoint = true;
-                    points.givePoint();
+                    Points.Instance.givePoint();
                 }
 
             }
