@@ -7,9 +7,10 @@ public class QuizABCDController : MonoBehaviour
 {
     public SceneController sceneController;
     public QuestionManager questionManager;
+    [SerializeField] Points points;
     public DataBase dataBase;
     VisualElement root;
-
+    bool hasAwardedPoint=false;
     Button returnMenuButton;
     RadioButton AnswerA;
     RadioButton AnswerB;
@@ -68,7 +69,7 @@ public class QuizABCDController : MonoBehaviour
 
         nextQuestion.clicked += () =>
         {
-
+            hasAwardedPoint = false;
             AnswerA.value = false;
             AnswerB.value = false;
             AnswerC.value = false;
@@ -219,6 +220,12 @@ public class QuizABCDController : MonoBehaviour
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+                if(!hasAwardedPoint)
+                {
+                    hasAwardedPoint = true;
+                    points.givePoint();
+                }
+                   
 
             }
             else if(selectedanswer== 2 && AnswerB.value)
@@ -227,6 +234,12 @@ public class QuizABCDController : MonoBehaviour
                 AnswerB.style.backgroundColor = new Color(0, 255, 0, 255);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+                if (!hasAwardedPoint)
+                {
+                    hasAwardedPoint = true;
+                    points.givePoint();
+                }
+
             }
             else if(selectedanswer == 3 && AnswerC.value)
             {
@@ -234,6 +247,12 @@ public class QuizABCDController : MonoBehaviour
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 255, 0, 255);
                 AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+                if (!hasAwardedPoint)
+                {
+                    hasAwardedPoint = true;
+                    points.givePoint();
+                }
+
             }
             else if (selectedanswer == 4 && AnswerD.value)
             {
@@ -241,6 +260,12 @@ public class QuizABCDController : MonoBehaviour
                 AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
                 AnswerD.style.backgroundColor = new Color(0, 255, 0, 255);
+                if (!hasAwardedPoint)
+                {
+                    hasAwardedPoint = true;
+                    points.givePoint();
+                }
+
             }
             else if(AnswerA.value == false || AnswerB.value == false || AnswerC.value == false || AnswerD.value == false)
             {
