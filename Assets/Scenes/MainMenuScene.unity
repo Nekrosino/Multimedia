@@ -200,6 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneController: {fileID: 911710923}
+  musicPlayer: {fileID: 0}
+  isMuted: 0
 --- !u!114 &911710926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -541,6 +543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 2037289011}
+  isMuted: 0
+  musicSource: {fileID: 2037289012}
 --- !u!1 &2110300145
 GameObject:
   m_ObjectHideFlags: 0

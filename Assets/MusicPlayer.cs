@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    private static MusicPlayer instance;
+    public static MusicPlayer Instance { get; private set; }
     public GameObject music;
+    public bool isMuted = false;
+    [SerializeField] AudioSource musicSource;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this; // Przypisz tê instancjê jako jedyn¹
+            Instance = this; // Przypisz tê instancjê jako jedyn¹
             DontDestroyOnLoad(music); // Zapewnia, ¿e obiekt nie zostanie zniszczony przy zmianie sceny
         }
         else
@@ -19,4 +21,25 @@ public class MusicPlayer : MonoBehaviour
             Destroy(music); // Zniszcz now¹ instancjê, jeœli ju¿ istnieje jedna
         }
     }
+
+    public void toggleMusic(bool toggle)
+    {
+        isMuted = toggle;
+        if (isMuted)
+        {
+            musicSource.mute = true;
+           
+        }
+        else
+        {
+            musicSource.mute = false;
+        }
+
+    }
+
+    public bool isMusicMuted()
+    {
+        return isMuted;
+    }
+       
 }

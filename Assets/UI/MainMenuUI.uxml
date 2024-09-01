@@ -4,6 +4,9 @@
         <ui:Button text="WYBIERZ QUIZ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="button" style="align-items: center; justify-content: flex-start; align-self: center; width: 15%; height: auto; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; font-size: 24px;" />
         <ui:Button text="AUTOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AuthorsButton" class="button" style="align-items: center; justify-content: flex-start; font-size: 24px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
         <ui:Button text="WYJDŹ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="align-items: center; justify-content: flex-start; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; font-size: 24px;" />
+        <ui:Toggle name="ToggleMusic" style="align-self: auto; width: 60px; height: 60px; opacity: 1; position: absolute; top: 563px; left: 1261px; align-items: center; justify-content: flex-start; font-size: 74px; flex-wrap: nowrap; flex-direction: column; overflow: visible; visibility: visible;">
+            <ui:VisualElement name="img" style="background-image: resource(&apos;img/speaker&apos;); width: 60px; height: 60px; position: absolute;" />
+        </ui:Toggle>
     </ui:VisualElement>
     <ui:Label tabindex="-1" text="Wersja Alpha 0.1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Version" style="position: absolute; color: rgba(255, 255, 255, 0.18); transform-origin: left top;" />
 </ui:UXML>
