@@ -3,5 +3,6 @@
     <ui:VisualElement style="flex-grow: 1; background-color: rgb(16, 0, 43); justify-content: space-around;">
         <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsSummary" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&amp;guid=f3d6f331f5b10e840b780d60f30f86d3&amp;type=2#jaro-cyrillic SDF&quot;); color: rgb(255, 255, 255); -unity-text-align: upper-center; font-size: 48px;" />
         <ui:Button text="Wróć do menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="button" style="align-self: center; justify-content: flex-start;" />
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; position: absolute; width: 100%; height: 745px; left: -25px; top: 6px; right: 26px; background-image: url(&quot;project://database/Assets/UI/New%20Render%20Texture.renderTexture?fileID=8400000&amp;guid=09d3cccfbe9e4954d80bf868ec0bec6c&amp;type=2#New Render Texture&quot;); -unity-background-scale-mode: scale-to-fit; overflow: hidden;" />
     </ui:VisualElement>
 </ui:UXML>
