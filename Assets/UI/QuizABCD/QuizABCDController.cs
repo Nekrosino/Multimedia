@@ -73,6 +73,11 @@ public class QuizABCDController : MonoBehaviour
 
         nextQuestion.clicked += () =>
         {
+            if (questionCount >= 9)
+            {
+                sceneController.LoadSummaryScene();
+            }
+
             hasAwardedPoint = false;
             AnswerA.value = false;
             AnswerB.value = false;
@@ -84,16 +89,13 @@ public class QuizABCDController : MonoBehaviour
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             questionNumber.RemoveFromClassList("end4");
             questionText.RemoveFromClassList("end5");
-            StartCoroutine(TestowaKorutynka());
+            StartCoroutine(TestowaKorutynka());      
+            
             handleQuestions();
             questionCount++;
-            if(questionCount >= 9)
-            {   
+            
 
-                sceneController.LoadSummaryScene();
-                
 
-            }
             // dataBase.AddQuestionsToQuiz();
 
         };
