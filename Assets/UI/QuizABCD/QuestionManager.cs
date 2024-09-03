@@ -62,8 +62,8 @@ public class QuestionManager : MonoBehaviour
             bool isCorrectC;
             bool isCorrectD;*/
             //przypisujemy tresc pytania z listy o numerze pytania czyli dla Pytania 0 - dostajemy tresc z indeksu numer 0 
-           /* dataBase.returnQuestion(questionNumber, out string questionText,out string AnswerA,out bool isCorrectA,out string AnswerB,out bool isCorrectB,out string AnswerC,out bool isCorrectC,out string AnswerD,out bool isCorrectD);
-            Debug.Log(questionText, AnswerA, isCorrectA);*/
+            dataBase.returnQuestion(questionNumber, out string questionText,out string AnswerA,out bool isCorrectA,out string AnswerB,out bool isCorrectB,out string AnswerC,out bool isCorrectC,out string AnswerD,out bool isCorrectD);
+            Debug.Log(questionText, AnswerA, isCorrectA);
             //questionText = pytania[questionNumber];
             Debug.Log("Wys³ano: " + questionText);
            

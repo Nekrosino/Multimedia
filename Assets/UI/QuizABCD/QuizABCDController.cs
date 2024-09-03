@@ -66,6 +66,7 @@ public class QuizABCDController : MonoBehaviour
     }
 
     public List<DataBase.Question> Questions;
+    private int howManyQuestions=10;
 
     private void OnEnable()
     {
@@ -87,7 +88,9 @@ public class QuizABCDController : MonoBehaviour
         AnswerCLabel = AnswerC.Query<Label>().First();
         AnswerDLabel = AnswerD.Query<Label>().First();
         Image = root.Q<VisualElement>("Image");
-        dataBase.AddQuestionsToQuiz(Questions);
+        // dataBase.AddQuestionsToQuiz(Questions,howManyQuestions);
+        LoadQuestions(howManyQuestions);
+
          StartCoroutine(TestowaKorutynka());
 
         handleQuestions();
@@ -101,26 +104,33 @@ public class QuizABCDController : MonoBehaviour
 
         nextQuestion.clicked += () =>
         {
-            if (questionCount >= 9)
-            {
-                sceneController.LoadSummaryScene();
-            }
+            /*            if (questionCount >= 9)
+                        {
+                            sceneController.LoadSummaryScene();
+                        }
 
-            hasAwardedPoint = false;
-            AnswerA.value = false;
-            AnswerB.value = false;
-            AnswerC.value = false;
-            AnswerD.value = false;
+                        hasAwardedPoint = false;
+                        AnswerA.value = false;
+                        AnswerB.value = false;
+                        AnswerC.value = false;
+                        AnswerD.value = false;
+                        AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                        AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+                        AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+                        AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+                        questionNumber.RemoveFromClassList("end4");
+                        questionText.RemoveFromClassList("end5");
+                        StartCoroutine(TestowaKorutynka());      
+
+                        handleQuestions();
+                        questionCount++;
+                        */
+
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
-            questionNumber.RemoveFromClassList("end4");
-            questionText.RemoveFromClassList("end5");
-            StartCoroutine(TestowaKorutynka());      
-            
-            handleQuestions();
-            questionCount++;
+            AnswerA.text = Questions[1].Answers[0].answerText;
             
 
 
@@ -148,6 +158,15 @@ public class QuizABCDController : MonoBehaviour
         questionNumber.AddToClassList("end4");
         questionText.AddToClassList("end5");
         Debug.Log("Dodano korutynke");
+    }
+
+    void LoadQuestions(int howManyQuestions)
+    {   
+        for(int i = 1; i <= howManyQuestions; i++)
+        {
+            dataBase.AddQuestionsToQuiz(Questions,i);
+        }
+
     }
 
     public int getPoints(int score)

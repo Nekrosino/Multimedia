@@ -5,11 +5,12 @@ using System.Data;
 using Mono.Data.Sqlite;
 using System;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class DataBase : MonoBehaviour
 {
     private string dbPath;
-    int questionNumber=1;
+   // int questionNumber=1;
 
     [Serializable]
     public class Question
@@ -326,7 +327,7 @@ public class DataBase : MonoBehaviour
     }
 
     //public void AddQuestionsToQuiz(List <string> pytania)
-    public void AddQuestionsToQuiz(List<Question>questions)
+    public void AddQuestionsToQuiz(List<Question>questions,int questionNumber)
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
        // List <string> pytania = new List<string>();
@@ -337,8 +338,8 @@ public class DataBase : MonoBehaviour
         {
             connection.Open();
             using (var command = connection.CreateCommand())
-            {
-                command.CommandText = "SELECT * FROM Questions where QuestionID ="+questionNumber;
+            {  
+                command.CommandText = "SELECT * FROM Questions where QuestionID ="+ questionNumber;
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -364,8 +365,10 @@ public class DataBase : MonoBehaviour
                             }
                         }
                         questions.Add(question);
-                        questionNumber++;
+                       
+
                     }
+                   // questionmin++;
                 }
             }
 
