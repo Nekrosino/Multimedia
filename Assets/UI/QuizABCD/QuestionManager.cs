@@ -37,7 +37,7 @@ public class QuestionManager : MonoBehaviour
         odpowiedzi.RemoveRange(0, odpowiedzi.Count);
 
         //pytania.AddRange(new List<string> { "Apple", "Banana", "Cherry" });
-        dataBase.AddQuestionsToQuiz(pytania);
+       // dataBase.AddQuestionsToQuiz(pytania);
         dataBase.AddAnswersToQuiz(odpowiedzi);
         Debug.Log("QuestionInitializing testowe: " + odpowiedzi[1]);
        // odpowiedzi.AddRange(new List<string> { "Tak", "Nie", "Nie wiem", "Test" });
@@ -52,12 +52,23 @@ public class QuestionManager : MonoBehaviour
         else
         {
             QuestionInitialize();
+/*            string AnswerA;
+            string AnswerB;
+            string AnswerC;
+            string AnswerD;
+            string questionText;
+            bool isCorrectA;
+            bool isCorrectB;
+            bool isCorrectC;
+            bool isCorrectD;*/
             //przypisujemy tresc pytania z listy o numerze pytania czyli dla Pytania 0 - dostajemy tresc z indeksu numer 0 
-
-            questionText = pytania[questionNumber];
+           /* dataBase.returnQuestion(questionNumber, out string questionText,out string AnswerA,out bool isCorrectA,out string AnswerB,out bool isCorrectB,out string AnswerC,out bool isCorrectC,out string AnswerD,out bool isCorrectD);
+            Debug.Log(questionText, AnswerA, isCorrectA);*/
+            //questionText = pytania[questionNumber];
             Debug.Log("Wys³ano: " + questionText);
+           
             //wywolanie funkcji z kontrolera ktora ustawia numer pytania i jego tresc
-            quizabcdcontroller.setQuestion(questionNumber, questionText);
+           // quizabcdcontroller.setQuestion(questionNumber, questionText);
             //zwiekszenie indeksu aby po kliknieciu przycisku zaladowalo kolejne pytanie
             //===================================================================================================================================================
             //DODAC coroutine zeby po wcisnieciu przycisku dodatkowo wyswietlala sie poprawna odpowiedz i dopiero po jakis 2 sekundach ladowalo kolejna odpowiedz

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,32 @@ public class QuizABCDController : MonoBehaviour
     int questionCount = 0;
     int score;
 
+    [Serializable]
+    public class Question
+    {
+        public string QuestionText;
+        public List<Answer> Answers = new List<Answer>();
+
+        public Question(string QuestionText)
+        {
+            this.QuestionText = QuestionText;
+        }
+    }
+
+    [Serializable]
+    public class Answer
+    {
+        public string answerText;
+        public bool isCorrect;
+
+        public Answer(string answerText, bool isCorrect)
+        {
+            this.answerText = answerText;
+            this.isCorrect = isCorrect;
+        }
+    }
+
+    public List<DataBase.Question> Questions;
 
     private void OnEnable()
     {
@@ -60,8 +87,9 @@ public class QuizABCDController : MonoBehaviour
         AnswerCLabel = AnswerC.Query<Label>().First();
         AnswerDLabel = AnswerD.Query<Label>().First();
         Image = root.Q<VisualElement>("Image");
-
+        dataBase.AddQuestionsToQuiz(Questions);
          StartCoroutine(TestowaKorutynka());
+
         handleQuestions();
        
 
@@ -176,13 +204,14 @@ public class QuizABCDController : MonoBehaviour
         }*/
 
     //Ustawienie numeru pytania oraz tresci na interfejsie (wywolywana w QuestionManager gdzie zawarte sa tresci pytan
-    public void setQuestion(int questionnumber, string questiontext)
+/*    public void setQuestion(int questionnumber, string questiontext)
     {
         questionNumber.text = "Pytanie numer: " + (questionnumber+1);
         questionText.text = questiontext;
         Debug.Log("Otrzymano" + questiontext);
    
-    }
+    }*/
+
 
     public void setAnswer(int questionnumber, string answertextA, string answertextB, string answertextC, string answertextD, int correctanswer)
     {
