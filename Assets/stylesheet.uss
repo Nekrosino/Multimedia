@@ -230,3 +230,58 @@
     border-top-color: rgb(123, 44, 191);
     border-bottom-color: rgb(123, 44, 191);
 }
+
+.start6 {
+    -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    text-shadow: 0 0 0 rgba(3, 233, 6, 0);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
+    -unity-font: url("project://database/Assets/UI/Fonts/jaro-cyrillic.otf?fileID=12800000&guid=41a1a921b163c04409e00911ca72a133&type=3#jaro-cyrillic");
+    translate: 0 -420px;
+}
+
+.end6 {
+    translate: 0 0;
+    transition-timing-function: ease-in-out-circ;
+    transition-duration: 0.5s;
+}
+
+.start7 {
+    -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    text-shadow: 0 0 0 rgba(3, 233, 6, 0);
+    -unity-font: url("project://database/Assets/UI/Fonts/jaro-cyrillic.otf?fileID=12800000&guid=41a1a921b163c04409e00911ca72a133&type=3#jaro-cyrillic");
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
+    translate: 0 -464px;
+}
+
+.end7 {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 0.5s;
+    transition-delay: 0.25s;
+    translate: 0 0;
+}
+
+.start8 {
+    -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    text-shadow: 0 0 0 rgba(3, 233, 6, 0);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&guid=f3d6f331f5b10e840b780d60f30f86d3&type=2#jaro-cyrillic SDF");
+    translate: 0 -502px;
+}
+
+.end8 {
+    transition-timing-function: ease-out-circ;
+    transition-duration: 0.5s;
+    transition-delay: 0.5s;
+    translate: 0 0;
+}

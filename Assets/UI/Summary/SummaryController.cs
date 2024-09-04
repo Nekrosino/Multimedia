@@ -4,14 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/*! A test class */
 public class SummaryController : MonoBehaviour
-{
+{   
+
     VisualElement root;
     Button returnMenuButton;
     [SerializeField] Points points;
     [SerializeField] SceneController sceneController;
     Label pointsSummary;
-    int score;
+    int score;    /*!< an integer value */
+
+    //!< a member function.
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -21,10 +25,13 @@ public class SummaryController : MonoBehaviour
         score = Points.Instance.getScore();
         pointsSummary.text = ("Wynik: " + score);
       
+        /**
+         * Przycisk
+         */
         returnMenuButton.clicked += () =>
         {
-            sceneController.LoadMainMenu();
-            Points.Instance.Reset();
+            sceneController.LoadMainMenu();  //!< a member function.
+            Points.Instance.Reset(); /**Reset punktow*/
         };
         
     }

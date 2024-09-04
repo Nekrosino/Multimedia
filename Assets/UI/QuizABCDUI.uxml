@@ -3,7 +3,7 @@
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgb(16, 0, 43);">
         <ui:VisualElement name="TopPanel" style="flex-grow: 0; flex-direction: row; align-self: auto; justify-content: flex-start; align-items: center; margin-top: 1%;">
             <ui:VisualElement name="LeftBar" class="start" style="background-color: rgb(224, 170, 255);" />
-            <ui:Label tabindex="-1" text="Quiz ABCD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="start3" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Freshman%20SDF.asset?fileID=11400000&amp;guid=ce17a0068f8f9664580445103cfb0727&amp;type=2#Freshman SDF&quot;); -unity-font-style: normal; color: rgb(255, 255, 255);" />
+            <ui:Label tabindex="-1" text="Stolice" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="start3" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Freshman%20SDF.asset?fileID=11400000&amp;guid=ce17a0068f8f9664580445103cfb0727&amp;type=2#Freshman SDF&quot;); -unity-font-style: normal; color: rgb(255, 255, 255);" />
             <ui:VisualElement name="RightBar" class="start2" style="background-color: rgb(224, 170, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="MiddlePanel" style="flex-grow: 0; margin-top: 1%; border-top-width: 2px; border-left-color: rgb(224, 170, 255); border-right-color: rgb(224, 170, 255); border-top-color: rgb(224, 170, 255); border-bottom-color: rgb(224, 170, 255); border-bottom-width: 2px; margin-bottom: 0;">
