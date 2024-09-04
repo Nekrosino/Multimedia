@@ -8,5 +8,5 @@
             <ui:VisualElement name="img" style="background-image: resource(&apos;img/speaker&apos;); width: 60px; height: 60px; position: absolute;" />
         </ui:Toggle>
     </ui:VisualElement>
-    <ui:Label tabindex="-1" text="Wersja Alpha 0.3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Version" style="position: absolute; color: rgba(255, 255, 255, 0.18); transform-origin: left top;" />
+    <ui:Label tabindex="-1" text="Wersja Alpha 0.3.1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Version" style="position: absolute; color: rgba(255, 255, 255, 0.18); transform-origin: left top;" />
 </ui:UXML>

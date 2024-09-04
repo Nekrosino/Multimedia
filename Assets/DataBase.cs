@@ -43,7 +43,7 @@ public class DataBase : MonoBehaviour
     void Start()
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
-       // CreateDatabase();
+        CreateDatabase();
         LogAnswers();
 /*        for (int i = 1; i <= 10;i++)
         {
@@ -75,7 +75,7 @@ public class DataBase : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 // Tworzenie tabel jeœli nie istniej¹
-                command.CommandText = "CREATE TABLE IF NOT EXISTS Questions (QuestionID INTEGER PRIMARY KEY AUTOINCREMENT, QuestionText TEXT NOT NULL);";
+                command.CommandText = "CREATE TABLE IF NOT EXISTS Questions (QuestionID INTEGER PRIMARY KEY AUTOINCREMENT, QuestionText TEXT NOT NULL, imgsrc TEXT NOT NULL DEFAULT 'placeholder');";
                 command.ExecuteNonQuery();
 
                 command.CommandText = "CREATE TABLE IF NOT EXISTS Answers (AnswerID INTEGER PRIMARY KEY AUTOINCREMENT, QuestionID INTEGER NOT NULL, AnswerText TEXT NOT NULL, IsCorrect INTEGER NOT NULL, FOREIGN KEY (QuestionID) REFERENCES Questions(QuestionID));";
@@ -88,7 +88,7 @@ public class DataBase : MonoBehaviour
                 if (questionExists == 0)
                 {
                     // Jeœli pytanie nie istnieje, wstaw dane
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Francji?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Francji?', 'francja_img');";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (1, 'Pary¿', 1);";
@@ -107,7 +107,7 @@ public class DataBase : MonoBehaviour
                 if (questionExists2 == 0)
                 {
                     // Jeœli pytanie nie istnieje, wstaw dane
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Polski?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Polski?', 'polska_img');";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Radom', 0);";
@@ -125,17 +125,17 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists3 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Niemiec?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Niemiec?', 'niemcy_img');";
                     command.ExecuteNonQuery();
 
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Hamburg', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Hamburg', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Monachium', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Monachium', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Berlin', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Berlin', 1);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Dortmund', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Dortmund', 0);";
                     command.ExecuteNonQuery();
                 }
 
@@ -145,16 +145,16 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists4 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ W³och?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ W³och?' , 'wlochy_img');";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Rzym', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Rzym', 1);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Lizbona', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Lizbona', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Ateny', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Ateny', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (3, 'Wiedeñ', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Wiedeñ', 0);";
                     command.ExecuteNonQuery();
                 }
 
@@ -164,16 +164,16 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Hiszpanii?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Hiszpanii?' , 'hiszpania_img');";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Barcelona', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Barcelona', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Sewilla', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Sewilla', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Valencia', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Valencia', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (4, 'Madryt', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Madryt', 1);";
                     command.ExecuteNonQuery();
                 }
 
@@ -182,17 +182,17 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists6 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Wielkiej Brytanii?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Wielkiej Brytanii?' , 'uk_img');";
                     command.ExecuteNonQuery();
 
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Edynburg', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (6, 'Edynburg', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Dublin', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (6, 'Dublin', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Londyn', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (6, 'Londyn', 1);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (5, 'Manchester', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (6, 'Manchester', 0);";
                     command.ExecuteNonQuery();
                 }
 
@@ -201,7 +201,7 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists7 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Portugalii?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Portugalii?' , 'portugalia_img');";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (7, 'Porto', 0);";
@@ -221,7 +221,7 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists8 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Grecji?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Grecji?' , 'grecja_img');";
                     command.ExecuteNonQuery();
 
 
@@ -240,7 +240,7 @@ public class DataBase : MonoBehaviour
 
                 if (questionExists9 == 0)
                 {
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Rosji?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Rosji?' , 'rosja_img');";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (9, 'Sankt Petersburg', 0);";
@@ -259,16 +259,16 @@ public class DataBase : MonoBehaviour
                 if (questionExists10 == 0)
                 {
                     // Jeœli pytanie nie istnieje, wstaw dane
-                    command.CommandText = "INSERT INTO Questions (QuestionText) VALUES ('Co jest stolic¹ Ukrainy?');";
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Ukrainy?', 'ukraina_img');";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Moskwa', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (10, 'Moskwa', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Radom', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (10, 'Radom', 0);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Kijów', 1);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (10, 'Kijów', 1);";
                     command.ExecuteNonQuery();
-                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (2, 'Lwów', 0);";
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (10, 'Lwów', 0);";
                     command.ExecuteNonQuery();
                 }
 
@@ -350,8 +350,8 @@ public class DataBase : MonoBehaviour
                         string questionText = reader.GetString(1);
                         string imgsrc = reader.GetString(2);
                         Question question = new Question(questionText,imgsrc);
-                        //pytania.Add(questionText);
-                        //questions.Add(new Question(questionText));
+                        //pytania.Add(QuestionText, imgsrc);
+                        //questions.Add(new Question(QuestionText, imgsrc));
                         using (var command2 = connection.CreateCommand())
                         {
                             command2.CommandText = "SELECT * from Answers where QuestionID = "+questionNumber;
