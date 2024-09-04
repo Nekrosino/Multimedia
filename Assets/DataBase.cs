@@ -4,17 +4,65 @@ using UnityEngine;
 using System.Data;
 using Mono.Data.Sqlite;
 using System;
+using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class DataBase : MonoBehaviour
 {
     private string dbPath;
+   // int questionNumber=1;
+
+    [Serializable]
+    public class Question
+    {
+        public string QuestionText;
+        public List<Answer> Answers = new List<Answer>();
+
+        public Question(string QuestionText)
+        {
+            this.QuestionText = QuestionText;
+        }
+    }
+
+    [Serializable]
+    public class Answer
+    {
+        public string answerText;
+        public bool isCorrect;
+
+        public Answer(string answerText, bool isCorrect)
+        {
+            this.answerText = answerText;
+            this.isCorrect = isCorrect;
+        }
+    }
+    //public List<Question> Questions;
 
     void Start()
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
-        CreateDatabase();
+       // CreateDatabase();
         LogAnswers();
+/*        for (int i = 1; i <= 10;i++)
+        {
+           // AddQuestionsToQuiz(Questions);
+        }*/
     }
+
+/*    public void returnQuestion(int questionNumber, out string questionname, out string answerAName, out bool isCorrectA, out string answerBName, out bool isCorrectB, out string answerCName, out bool isCorrectC, out string answerDName, out bool isCorrectD)
+    {
+        questionname = Questions[questionNumber].QuestionText;
+        answerAName = Questions[questionNumber].Answers[0].answerText;
+        isCorrectA = Questions[questionNumber].Answers[0].isCorrect;
+        answerBName = Questions[questionNumber].Answers[1].answerText;
+        isCorrectB = Questions[questionNumber].Answers[1].isCorrect;
+        answerCName = Questions[questionNumber].Answers[2].answerText;
+        isCorrectC = Questions[questionNumber].Answers[2].isCorrect;
+        answerDName = Questions[questionNumber].Answers[3].answerText;
+        isCorrectD = Questions[questionNumber].Answers[3].isCorrect;
+
+    }*/
+
 
 
     void CreateDatabase()
@@ -243,7 +291,7 @@ public class DataBase : MonoBehaviour
                         string answerText = reader.GetString(2);
                         bool isCorrect = reader.GetInt32(3) == 1;
 
-                        Debug.Log($"AnswerID: {answerID}, QuestionID: {questionID}, AnswerText: {answerText}, IsCorrect: {isCorrect}");
+                      //  Debug.Log($"AnswerID: {answerID}, QuestionID: {questionID}, AnswerText: {answerText}, IsCorrect: {isCorrect}");
                     }
                 }
             }
@@ -274,35 +322,69 @@ public class DataBase : MonoBehaviour
         }
         foreach (string element in odpowiedzi)
         {
-            Debug.Log("Test " + element);
+          //  Debug.Log("Test " + element);
         }
     }
 
-    public void AddQuestionsToQuiz(List <string> pytania)
+    //public void AddQuestionsToQuiz(List <string> pytania)
+    public void AddQuestionsToQuiz(List<Question>questions,int questionNumber)
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
-        // List<string> pytania = new List<string>();
+       // List <string> pytania = new List<string>();
+         //List<string> odpowiedzi = new List<string>();
+        //List<bool> isValid = new List<bool>();
+       // List <Question> questions = new List<Question>();
         using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
             using (var command = connection.CreateCommand())
-            {
-                command.CommandText = "SELECT * FROM Questions";
+            {  
+                command.CommandText = "SELECT * FROM Questions where QuestionID ="+ questionNumber;
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
-                    {
-                        string answerText = reader.GetString(1);
-                        pytania.Add(answerText);
+                    {   
+                        
+                        string questionText = reader.GetString(1);
+                        Question question = new Question(questionText);
+                        //pytania.Add(questionText);
+                        //questions.Add(new Question(questionText));
+                        using (var command2 = connection.CreateCommand())
+                        {
+                            command2.CommandText = "SELECT * from Answers where QuestionID = "+questionNumber;
+                            using (IDataReader reader2 = command2.ExecuteReader())
+                            {
+                                while (reader2.Read())
+                                {
+                                    string answerText = reader2.GetString(2);
+                                    bool isCorrect = reader2.GetBoolean(3);
+                                    // odpowiedzi.Add(answerText);
+                                    // isValid.Add(isCorrect);
+                                    question.Answers.Add(new Answer(answerText, isCorrect));
+                                }
+                            }
+                        }
+                        questions.Add(question);
+                       
 
                     }
+                   // questionmin++;
                 }
             }
 
         }
-        foreach (string element in pytania)
+       foreach(var question in questions)
         {
-            Debug.Log("Test " + element);
+            Debug.Log("Pytanie: " + question.QuestionText);
+            foreach(var answer in question.Answers)
+            {
+                Debug.Log("Odpowiedz: " + answer.answerText + " IsCorrect " + answer.isCorrect);
+            }
+            
         }
+
     }
+
+
+
 }

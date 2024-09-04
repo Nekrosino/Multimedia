@@ -26,7 +26,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 25%;">
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
-                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerC" class="odpowiedzi" style="color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&amp;guid=f3d6f331f5b10e840b780d60f30f86d3&amp;type=2#jaro-cyrillic SDF&quot;);" />
+                    <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerC" class="odpowiedzi" style="color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&amp;guid=f3d6f331f5b10e840b780d60f30f86d3&amp;type=2#jaro-cyrillic SDF&quot;); font-size: 20px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center; align-self: auto; align-items: flex-start; margin-left: 1%;">
                     <ui:RadioButton label="A. Odpowiedź X" value="false" name="AnswerD" class="odpowiedzi" style="color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/jaro-cyrillic%20SDF.asset?fileID=11400000&amp;guid=f3d6f331f5b10e840b780d60f30f86d3&amp;type=2#jaro-cyrillic SDF&quot;);" />
