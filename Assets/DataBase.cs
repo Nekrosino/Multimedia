@@ -16,11 +16,13 @@ public class DataBase : MonoBehaviour
     public class Question
     {
         public string QuestionText;
+        public string imgsrc;
         public List<Answer> Answers = new List<Answer>();
 
-        public Question(string QuestionText)
+        public Question(string QuestionText,string imgsrc)
         {
             this.QuestionText = QuestionText;
+            this.imgsrc = imgsrc;
         }
     }
 
@@ -346,7 +348,8 @@ public class DataBase : MonoBehaviour
                     {   
                         
                         string questionText = reader.GetString(1);
-                        Question question = new Question(questionText);
+                        string imgsrc = reader.GetString(2);
+                        Question question = new Question(questionText,imgsrc);
                         //pytania.Add(questionText);
                         //questions.Add(new Question(questionText));
                         using (var command2 = connection.CreateCommand())

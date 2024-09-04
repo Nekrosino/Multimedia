@@ -42,7 +42,7 @@ public class QuizABCDController : MonoBehaviour
     int startQuestion = 0;  
     int correctanswer = 5;
 
-    [Serializable]
+/*    [Serializable]
     public class Question
     {
         public string QuestionText;
@@ -65,7 +65,7 @@ public class QuizABCDController : MonoBehaviour
             this.answerText = answerText;
             this.isCorrect = isCorrect;
         }
-    }
+    }*/
 
     public List<DataBase.Question> Questions;
     private int howManyQuestions=10;
@@ -122,9 +122,8 @@ public class QuizABCDController : MonoBehaviour
          //   AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
           //  AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
          //   AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
-         //   questionNumber.RemoveFromClassList("end4");
-         //   questionText.RemoveFromClassList("end5");
-            StartCoroutine(TestowaKorutynka());
+
+          
 
           //  handleQuestions();
          //   questionCount++;
@@ -136,7 +135,12 @@ public class QuizABCDController : MonoBehaviour
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             /*AnswerA.text = Questions[1].Answers[0].answerText;*/
             if (startQuestion < howManyQuestions)
+            {
+                questionNumber.RemoveFromClassList("end4");
+                questionText.RemoveFromClassList("end5");
                 InitializeQuestion();
+                StartCoroutine(TestowaKorutynka());
+            }
             else
                 sceneController.LoadSummaryScene();
 
@@ -193,8 +197,10 @@ public class QuizABCDController : MonoBehaviour
         AnswerBLabel.text = "B. " + OdpB;
         AnswerCLabel.text = "C. " + OdpC;
         AnswerDLabel.text = "D. " + OdpD;
+        setImage(startQuestion);
+        Image.style.backgroundImage = Resources.Load<Texture2D>("img/" + imgsrc);
 
-       // setCorrectAnswer(correctanswer);
+        // setCorrectAnswer(correctanswer);
         Debug.Log("Ustawiona Odpowiedz: " + correctanswer);
         startQuestion++;
 
@@ -329,9 +335,10 @@ public void Update()
 
     }
 
-    public void setImage(int questionnumber)
+    public void setImage(int startquestion)
     {
-        if(questionnumber == 1) //francja
+        imgsrc = Questions[startQuestion].imgsrc;
+/*        if(questionnumber == 1) //francja
             imgsrc = "francja_img";
         if (questionnumber == 2) //polska
             imgsrc = "polska_img";
@@ -350,7 +357,9 @@ public void Update()
         if (questionnumber == 9) //Rosja
             imgsrc = "rosja_img";
         if (questionnumber == 10) //Ukraina
-            imgsrc = "ukraina_img";
+            imgsrc = "ukraina_img";*/
+
+
     }
 
     public void checkAnswer(int selectedanswer,int correctanswer)
