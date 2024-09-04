@@ -68,7 +68,7 @@ public class QuizABCDController : MonoBehaviour
     }*/
 
     public List<DataBase.Question> Questions;
-    private int howManyQuestions=10;
+    private int howManyQuestions=15;
 
     private void OnEnable()
     {
@@ -134,7 +134,7 @@ public class QuizABCDController : MonoBehaviour
             AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
             /*AnswerA.text = Questions[1].Answers[0].answerText;*/
-            if (startQuestion < howManyQuestions)
+            if (startQuestion < 10)
             {
                 questionNumber.RemoveFromClassList("end4");
                 questionText.RemoveFromClassList("end5");

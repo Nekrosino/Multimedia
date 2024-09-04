@@ -162,7 +162,7 @@ public class DataBase : MonoBehaviour
                 command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Hiszpanii?';";
                long questionExists5 = (long)command.ExecuteScalar();
 
-                if (questionExists == 0)
+                if (questionExists5 == 0)
                 {
                     command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Hiszpanii?' , 'hiszpania_img');";
                     command.ExecuteNonQuery();
@@ -272,8 +272,113 @@ public class DataBase : MonoBehaviour
                     command.ExecuteNonQuery();
                 }
 
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Belgii?';";
+                long questionExists11 = (long)command.ExecuteScalar();
+
+                if (questionExists11 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Belgii?', 'Belgia_img');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (11, 'Bruksela', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (11, 'Antwerpia', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (11, 'Brugia', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (11, 'Gandawa', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Australii?';";
+                long questionExists12 = (long)command.ExecuteScalar();
+
+                if (questionExists12 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Australii?', 'Australia_img');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (12, 'Canberra', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (12, 'Sydney', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (12, 'Melbourne', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (12, 'Perth', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Japoni?';";
+                long questionExists13 = (long)command.ExecuteScalar();
+
+                if (questionExists13 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Japoni?', 'Japonia_img');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (13, 'Tokio', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (13, 'Osaka', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (13, 'Kioto', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (13, 'Hiroshima', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Brazylii?';";
+                long questionExists14 = (long)command.ExecuteScalar();
+
+                if (questionExists14 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Brazylii?', 'Brazylia_img');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (14, 'Brasilia', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (14, 'Rio de Janeiro', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (14, 'Sao Paulo', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (14, 'Salvador', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+                command.CommandText = "SELECT COUNT(*) FROM Questions WHERE QuestionText = 'Co jest stolic¹ Egiptu?';";
+                long questionExists15 = (long)command.ExecuteScalar();
+
+                if (questionExists15 == 0)
+                {
+                    // Jeœli pytanie nie istnieje, wstaw dane
+                    command.CommandText = "INSERT INTO Questions (QuestionText, imgsrc) VALUES ('Co jest stolic¹ Egiptu?', 'Egipt_img');";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (15, 'Kair', 1);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (15, 'Aleksandria', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (15, 'Giza', 0);";
+                    command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO Answers (QuestionID, AnswerText, IsCorrect) VALUES (15, 'Luxor', 0);";
+                    command.ExecuteNonQuery();
+                }
+
+
+
             }
+
         }
+        
     }
 
     void LogAnswers()
