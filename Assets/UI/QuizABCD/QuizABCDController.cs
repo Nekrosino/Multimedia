@@ -35,10 +35,12 @@ public class QuizABCDController : MonoBehaviour
 
     RadioButton selectedRadioButton;
     int selectedanswer;
-    int correctanswer;
+  
     private string imgsrc;
     int questionCount = 0;
     int score;
+    int startQuestion = 0;  
+    int correctanswer = 5;
 
     [Serializable]
     public class Question
@@ -90,10 +92,12 @@ public class QuizABCDController : MonoBehaviour
         Image = root.Q<VisualElement>("Image");
         // dataBase.AddQuestionsToQuiz(Questions,howManyQuestions);
         LoadQuestions(howManyQuestions);
+        Shuffle(Questions);
+       
+        InitializeQuestion();
+        StartCoroutine(TestowaKorutynka());
 
-         StartCoroutine(TestowaKorutynka());
-
-        handleQuestions();
+       // handleQuestions();
        
 
 
@@ -104,34 +108,38 @@ public class QuizABCDController : MonoBehaviour
 
         nextQuestion.clicked += () =>
         {
-            /*            if (questionCount >= 9)
-                        {
-                            sceneController.LoadSummaryScene();
-                        }
+   /*         if (questionCount >= 9)
+            {
+                sceneController.LoadSummaryScene();
+            }
+*/
+            hasAwardedPoint = false;
+            AnswerA.value = false;
+            AnswerB.value = false;
+            AnswerC.value = false;
+            AnswerD.value = false;
+           // AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+         //   AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
+          //  AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
+         //   AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
+         //   questionNumber.RemoveFromClassList("end4");
+         //   questionText.RemoveFromClassList("end5");
+            StartCoroutine(TestowaKorutynka());
 
-                        hasAwardedPoint = false;
-                        AnswerA.value = false;
-                        AnswerB.value = false;
-                        AnswerC.value = false;
-                        AnswerD.value = false;
-                        AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
-                        AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
-                        AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
-                        AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
-                        questionNumber.RemoveFromClassList("end4");
-                        questionText.RemoveFromClassList("end5");
-                        StartCoroutine(TestowaKorutynka());      
+          //  handleQuestions();
+         //   questionCount++;
 
-                        handleQuestions();
-                        questionCount++;
-                        */
 
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
-            AnswerA.text = Questions[1].Answers[0].answerText;
-            
+            /*AnswerA.text = Questions[1].Answers[0].answerText;*/
+            if (startQuestion < howManyQuestions)
+                InitializeQuestion();
+            else
+                sceneController.LoadSummaryScene();
+
 
 
             // dataBase.AddQuestionsToQuiz();
@@ -139,7 +147,74 @@ public class QuizABCDController : MonoBehaviour
         };
     }
 
-    public void Update()
+    public void InitializeQuestion()
+    {   
+
+        int QuestionsAmount = Questions.Count;
+        Shuffle(Questions[startQuestion].Answers);
+        string pytanie = Questions[startQuestion].QuestionText;
+        string OdpA = Questions[startQuestion].Answers[0].answerText;
+        bool isCorrectA = Questions[startQuestion].Answers[0].isCorrect;
+        string OdpB = Questions[startQuestion].Answers[1].answerText;
+        bool isCorrectB = Questions[startQuestion].Answers[1].isCorrect;
+        string OdpC = Questions[startQuestion].Answers[2].answerText;
+        bool isCorrectC = Questions[startQuestion].Answers[2].isCorrect;
+        string OdpD = Questions[startQuestion].Answers[3].answerText;
+        bool isCorrectD = Questions[startQuestion].Answers[3].isCorrect;
+        if (isCorrectA)
+        {
+            correctanswer = 1;
+            setCorrectAnswer(correctanswer);
+        }
+        else if (isCorrectB)
+        {
+            correctanswer = 2;
+            setCorrectAnswer(correctanswer);
+        }
+        else if (isCorrectC)
+        {
+            correctanswer = 3;
+            setCorrectAnswer(correctanswer);
+        }
+        else if (isCorrectD)
+        {
+            correctanswer = 4;
+            setCorrectAnswer(correctanswer);
+        }
+
+        Debug.Log("Inicjalizacja Pytania " + pytanie);
+        Debug.Log("Odp " + OdpA + " IsCorrect " + isCorrectA);
+        Debug.Log("Odp " + OdpB + " IsCorrect " + isCorrectB);
+        Debug.Log("Odp " + OdpC + " IsCorrect " + isCorrectC);
+        Debug.Log("Odp " + OdpD + " IsCorrect " + isCorrectD);
+        questionNumber.text = "Pytanie numer: " + (startQuestion + 1);
+        questionText.text = pytanie;
+        AnswerALabel.text = "A. " + OdpA;
+        AnswerBLabel.text = "B. " + OdpB;
+        AnswerCLabel.text = "C. " + OdpC;
+        AnswerDLabel.text = "D. " + OdpD;
+
+       // setCorrectAnswer(correctanswer);
+        Debug.Log("Ustawiona Odpowiedz: " + correctanswer);
+        startQuestion++;
+
+    }
+
+    public static void Shuffle<T>(List<T> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+    }
+
+public void Update()
     {   
         AnswerA.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
         AnswerB.RegisterCallback<ChangeEvent<bool>>(OnRadioButtonChanged);
@@ -238,7 +313,7 @@ public class QuizABCDController : MonoBehaviour
         AnswerBLabel.text = "B. " + answertextB;
         AnswerCLabel.text = "C. " + answertextC;
         AnswerDLabel.text = "D. " + answertextD;
-        setCorrectAnswer(correctanswer);
+        //setCorrectAnswer(correctanswer);
     }
 
     //obsluga pytan - sluzy jako funkcja posrednicza zeby odbierac dane pytan
