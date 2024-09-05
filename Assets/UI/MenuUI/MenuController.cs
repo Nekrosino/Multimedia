@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-//using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+/*Klasa s³u¿¹ca do zarz¹dzania Menu*/
 public class MenuController : MonoBehaviour
 {
     VisualElement root;
     public SceneController sceneController;
     public MusicPlayer musicPlayer;
-    // Start is called before the first frame update
     Button startButton;
     Button quitButton;
     Button authorsButton;
@@ -19,8 +18,8 @@ public class MenuController : MonoBehaviour
     VisualElement img;
     VisualElement unitycheckmark;
     public bool isMuted;
-    //[SerializeField] MusicPlayer music;
 
+/*    Funkcja wykonuj¹ca siê przy w³¹czeniu interfejsu*/
     public void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -32,17 +31,18 @@ public class MenuController : MonoBehaviour
         unitycheckmark = toggleMusic.Q<VisualElement>("unity-checkmark");
         img = root.Q<VisualElement>("img");
         unitycheckmark.style.opacity = 0;
-
+/*
+        Przycisk umo¿liwiaj¹cy przejœcie do wyboru quizów*/
         startButton.clicked += () =>
         {
             sceneController.LoadSelectingQuiz();
         };
-
+        //Przycisk s³u¿¹cy do wyjœcia z aplikacji
         quitButton.clicked += () =>
         {
             sceneController.QuitGame();
         };
-
+        //Przycisk umo¿liwiaj¹cy przejœcie do ekranu autorów
         authorsButton.clicked += () =>
         {
             sceneController.LoadAuthors();
@@ -51,11 +51,10 @@ public class MenuController : MonoBehaviour
 
     }
 
+    //Funkcja wywo³uj¹ca siê w momencie za³adowania klasy przed metod¹ Update()
     private void Start()
     {
-        // isMuted = musicPlayer.isMusicMuted();
-        //toggleMusic.value = isMuted;
-        // toggleMusic.value = mute;
+
         toggleMusic.value = MusicPlayer.Instance.isMuted;
         MusicPlayer.Instance.toggleMusic(toggleMusic.value);
         if(MusicPlayer.Instance.isMuted)
@@ -69,6 +68,7 @@ public class MenuController : MonoBehaviour
       
     }
 
+    //Funkcja wywo³ywana w ka¿dej klatce
     public void Update()
     {
 

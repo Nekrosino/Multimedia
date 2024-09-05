@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class QuizABCDController : MonoBehaviour
@@ -10,7 +8,6 @@ public class QuizABCDController : MonoBehaviour
     public SceneController sceneController;
     public QuestionManager questionManager;
     public SummaryController summaryController;
-   // [SerializeField] Points points;
     public DataBase dataBase;
     VisualElement root;
     bool hasAwardedPoint=false;
@@ -37,35 +34,10 @@ public class QuizABCDController : MonoBehaviour
     int selectedanswer;
   
     private string imgsrc;
-    int questionCount = 0;
     int score;
     int startQuestion = 0;  
     int correctanswer = 5;
 
-/*    [Serializable]
-    public class Question
-    {
-        public string QuestionText;
-        public List<Answer> Answers = new List<Answer>();
-
-        public Question(string QuestionText)
-        {
-            this.QuestionText = QuestionText;
-        }
-    }
-
-    [Serializable]
-    public class Answer
-    {
-        public string answerText;
-        public bool isCorrect;
-
-        public Answer(string answerText, bool isCorrect)
-        {
-            this.answerText = answerText;
-            this.isCorrect = isCorrect;
-        }
-    }*/
 
     public List<DataBase.Question> Questions;
     private int howManyQuestions=15;
@@ -90,14 +62,12 @@ public class QuizABCDController : MonoBehaviour
         AnswerCLabel = AnswerC.Query<Label>().First();
         AnswerDLabel = AnswerD.Query<Label>().First();
         Image = root.Q<VisualElement>("Image");
-        // dataBase.AddQuestionsToQuiz(Questions,howManyQuestions);
         LoadQuestions(howManyQuestions);
         Shuffle(Questions);
        
         InitializeQuestion();
         StartCoroutine(TestowaKorutynka());
 
-       // handleQuestions();
        
 
 
@@ -108,32 +78,20 @@ public class QuizABCDController : MonoBehaviour
 
         nextQuestion.clicked += () =>
         {
-   /*         if (questionCount >= 9)
-            {
-                sceneController.LoadSummaryScene();
-            }
-*/
+
             hasAwardedPoint = false;
             AnswerA.value = false;
             AnswerB.value = false;
             AnswerC.value = false;
             AnswerD.value = false;
-           // AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
-         //   AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
-          //  AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
-         //   AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
 
-          
-
-          //  handleQuestions();
-         //   questionCount++;
 
 
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerB.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerC.style.backgroundColor = new Color(0, 0, 0, 0);
             AnswerD.style.backgroundColor = new Color(0, 0, 0, 0);
-            /*AnswerA.text = Questions[1].Answers[0].answerText;*/
+
             if (startQuestion < 10)
             {
                 questionNumber.RemoveFromClassList("end4");
@@ -144,9 +102,6 @@ public class QuizABCDController : MonoBehaviour
             else
                 sceneController.LoadSummaryScene();
 
-
-
-            // dataBase.AddQuestionsToQuiz();
 
         };
     }
@@ -200,7 +155,6 @@ public class QuizABCDController : MonoBehaviour
         setImage(startQuestion);
         Image.style.backgroundImage = Resources.Load<Texture2D>("img/" + imgsrc);
 
-        // setCorrectAnswer(correctanswer);
         Debug.Log("Ustawiona Odpowiedz: " + correctanswer);
         startQuestion++;
 
@@ -250,12 +204,6 @@ public void Update()
 
     }
 
-    public int getPoints(int score)
-    {
-        score = this.score;
-        return score;
-    }
-
     private void OnRadioButtonChanged(ChangeEvent<bool> evt)
     {
         if(evt.newValue)
@@ -293,72 +241,9 @@ public void Update()
     }
 
 
-    //Pobierz kolejny numer pytania
-    /*   public void setQuestion()
-        {
-            int nextQuestionNumber = questionManager.nextQuestionNumber();
-            questionNumber.text = "Pytanie numer: "+nextQuestionNumber;
-            Debug.Log(""+questionNumber.text);
-
-            questionText.text = questionManager.nextQuestionText(nextQuestionNumber);
-        }*/
-
-    //Ustawienie numeru pytania oraz tresci na interfejsie (wywolywana w QuestionManager gdzie zawarte sa tresci pytan
-/*    public void setQuestion(int questionnumber, string questiontext)
-    {
-        questionNumber.text = "Pytanie numer: " + (questionnumber+1);
-        questionText.text = questiontext;
-        Debug.Log("Otrzymano" + questiontext);
-   
-    }*/
-
-
-    public void setAnswer(int questionnumber, string answertextA, string answertextB, string answertextC, string answertextD, int correctanswer)
-    {
-        AnswerALabel.text = "A. " + answertextA;
-        AnswerBLabel.text = "B. " + answertextB;
-        AnswerCLabel.text = "C. " + answertextC;
-        AnswerDLabel.text = "D. " + answertextD;
-        //setCorrectAnswer(correctanswer);
-    }
-
-    //obsluga pytan - sluzy jako funkcja posrednicza zeby odbierac dane pytan
-    public void handleQuestions()
-    {
-       // imgsrc = "niemcy_img";
-        questionManager.sendQuestion();
-        questionManager.sendAnswers();
-       
-        Image.style.backgroundImage = Resources.Load<Texture2D>("img/" + imgsrc);
-
-
-
-    }
-
     public void setImage(int startquestion)
     {
         imgsrc = Questions[startQuestion].imgsrc;
-/*        if(questionnumber == 1) //francja
-            imgsrc = "francja_img";
-        if (questionnumber == 2) //polska
-            imgsrc = "polska_img";
-        if (questionnumber == 3) //niemcy
-            imgsrc = "niemcy_img";
-        if (questionnumber == 4) //wlochy
-            imgsrc = "wlochy_img";
-        if (questionnumber == 5) //hiszpania
-            imgsrc = "hiszpania_img";
-        if (questionnumber == 6) //uk
-            imgsrc = "uk_img";
-        if (questionnumber == 7) //Portugalia
-            imgsrc = "portugalia_img";
-        if (questionnumber == 8) ///Grecja
-            imgsrc = "grecja_img";
-        if (questionnumber == 9) //Rosja
-            imgsrc = "rosja_img";
-        if (questionnumber == 10) //Ukraina
-            imgsrc = "ukraina_img";*/
-
 
     }
 

@@ -22,26 +22,17 @@ public class SceneController : MonoBehaviour
         Debug.Log("Scena z informacjami o autorze");
     }
 
-/*    public void LoadGame()
-    {
-        SceneManager.LoadScene("GameScene");
-        Debug.Log("Scena z wyborem rodzaju quizu");
-    }*/
-
     public void LoadQuiz1()
     {
         SceneManager.LoadScene("QuizABCDScene");
         Debug.Log("Quiz1");
     }
 
-
     public void LoadQuiz2()
     {
         SceneManager.LoadScene("Quiz2Scene");
         Debug.Log("Quiz2");
     }
-
-
 
     public void LoadQuiz3()
     {

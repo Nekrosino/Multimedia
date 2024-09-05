@@ -38,33 +38,14 @@ public class DataBase : MonoBehaviour
             this.isCorrect = isCorrect;
         }
     }
-    //public List<Question> Questions;
 
     void Start()
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
         CreateDatabase();
-        LogAnswers();
-/*        for (int i = 1; i <= 10;i++)
-        {
-           // AddQuestionsToQuiz(Questions);
-        }*/
+       //LogAnswers();
+
     }
-
-/*    public void returnQuestion(int questionNumber, out string questionname, out string answerAName, out bool isCorrectA, out string answerBName, out bool isCorrectB, out string answerCName, out bool isCorrectC, out string answerDName, out bool isCorrectD)
-    {
-        questionname = Questions[questionNumber].QuestionText;
-        answerAName = Questions[questionNumber].Answers[0].answerText;
-        isCorrectA = Questions[questionNumber].Answers[0].isCorrect;
-        answerBName = Questions[questionNumber].Answers[1].answerText;
-        isCorrectB = Questions[questionNumber].Answers[1].isCorrect;
-        answerCName = Questions[questionNumber].Answers[2].answerText;
-        isCorrectC = Questions[questionNumber].Answers[2].isCorrect;
-        answerDName = Questions[questionNumber].Answers[3].answerText;
-        isCorrectD = Questions[questionNumber].Answers[3].isCorrect;
-
-    }*/
-
 
 
     void CreateDatabase()
@@ -398,7 +379,6 @@ public class DataBase : MonoBehaviour
                         string answerText = reader.GetString(2);
                         bool isCorrect = reader.GetInt32(3) == 1;
 
-                      //  Debug.Log($"AnswerID: {answerID}, QuestionID: {questionID}, AnswerText: {answerText}, IsCorrect: {isCorrect}");
                     }
                 }
             }
@@ -408,7 +388,6 @@ public class DataBase : MonoBehaviour
     public void AddAnswersToQuiz(List <string> odpowiedzi)
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
-        // List<string> pytania = new List<string>();
         using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
@@ -427,20 +406,14 @@ public class DataBase : MonoBehaviour
             }
 
         }
-        foreach (string element in odpowiedzi)
-        {
-          //  Debug.Log("Test " + element);
-        }
+
     }
 
-    //public void AddQuestionsToQuiz(List <string> pytania)
+
     public void AddQuestionsToQuiz(List<Question>questions,int questionNumber)
     {
         dbPath = "URI=file:" + Application.dataPath + "/QuizDatabase.db";
-       // List <string> pytania = new List<string>();
-         //List<string> odpowiedzi = new List<string>();
-        //List<bool> isValid = new List<bool>();
-       // List <Question> questions = new List<Question>();
+
         using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
@@ -454,9 +427,9 @@ public class DataBase : MonoBehaviour
                         
                         string questionText = reader.GetString(1);
                         string imgsrc = reader.GetString(2);
+
                         Question question = new Question(questionText,imgsrc);
-                        //pytania.Add(QuestionText, imgsrc);
-                        //questions.Add(new Question(QuestionText, imgsrc));
+
                         using (var command2 = connection.CreateCommand())
                         {
                             command2.CommandText = "SELECT * from Answers where QuestionID = "+questionNumber;
@@ -466,8 +439,7 @@ public class DataBase : MonoBehaviour
                                 {
                                     string answerText = reader2.GetString(2);
                                     bool isCorrect = reader2.GetBoolean(3);
-                                    // odpowiedzi.Add(answerText);
-                                    // isValid.Add(isCorrect);
+
                                     question.Answers.Add(new Answer(answerText, isCorrect));
                                 }
                             }
@@ -476,20 +448,12 @@ public class DataBase : MonoBehaviour
                        
 
                     }
-                   // questionmin++;
+
                 }
             }
 
         }
-       foreach(var question in questions)
-        {
-            Debug.Log("Pytanie: " + question.QuestionText);
-            foreach(var answer in question.Answers)
-            {
-                Debug.Log("Odpowiedz: " + answer.answerText + " IsCorrect " + answer.isCorrect);
-            }
-            
-        }
+
 
     }
 

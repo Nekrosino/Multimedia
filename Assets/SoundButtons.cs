@@ -10,14 +10,14 @@ public class SoundButtons : MonoBehaviour
    
     private void Awake()
     {
-        // Pobierz komponent AudioSource
+  
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             Debug.LogError("Brak AudioSource na obiekcie: " + gameObject.name);
         }
 
-        // Pobierz root VisualElement z UIDocument
+
         var uiDocument = GetComponent<UIDocument>();
         if (uiDocument != null)
         {
@@ -31,14 +31,13 @@ public class SoundButtons : MonoBehaviour
 
     private void Start()
     {
-        // ZnajdŸ wszystkie elementy typu Button w hierarchii UI Toolkit
+
         var buttons = rootVisualElement.Query<Button>().ToList();
         audioSource.volume = 0.2f;
-        // Dla ka¿dego przycisku dodaj obs³ugê najechania
         foreach (var button in buttons)
         {
             button.RegisterCallback<MouseEnterEvent>(ev => PlayHoverSound());
-            //button.RegisterCallback<ClickEvent>(ev => PlayHoverSound());
+   
         }
     }
 
